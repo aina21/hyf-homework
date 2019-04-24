@@ -121,7 +121,7 @@ svg{
    grid-row: 2;
   background: #89bdd3;
   padding: 10px;
-  width: 225px;
+  width: 240px;
   font-size: 13px;
   }
   .aside h2{
@@ -156,8 +156,7 @@ svg{
   /* larg screen */
   @media only screen  and (min-width : 1824px) {
     .aside {
-        float: left;
-        height: 100%;
+        width: 100%;
     }
 } 
 
