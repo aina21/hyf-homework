@@ -73,7 +73,7 @@ header{
     padding: 30px;
 }
 h1{
-    font-size: 10px;
+    font-size: 20px;
 }
 /* my photo */
 img{
@@ -120,8 +120,8 @@ svg{
    grid-column: 1;
    grid-row: 2;
   background: #89bdd3;
-  padding: 10px;
-  width: 240px;
+  padding: 30px;
+  width: 100%;
   font-size: 13px;
   }
   .aside h2{
