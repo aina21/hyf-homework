@@ -47,10 +47,9 @@ table {
        -moz-box-sizing: border-box;
             box-sizing: border-box;
   }
+
 body{
-    font-weight: lighter;
-    font-family: OpenSansRegular, sans-serif;
-    
+    font-family: 'Fira Sans', sans-serif;
     display: block;
 
 }
@@ -95,7 +94,7 @@ img{
  section h2{
      font-size: 15px;
      text-transform: uppercase;
-     font-weight: 400;
+     font-weight: 500;
      
  }
  .degree{
@@ -123,10 +122,12 @@ svg{
   padding: 30px;
   width: 100%;
   font-size: 13px;
+  font-weight: lighter;
   }
   .aside h2{
     font-size: 15px;
     text-align: center;
+    font-weight: 400;
 
   }
 
