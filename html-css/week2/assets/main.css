@@ -1,0 +1,218 @@
+/* --------------------------------------------------------
+Style Sheet for Hack Your Future, HTML-CSS, homework Week2 
+
+author: Ida Naderian
+email: ida.naderian@gmail.com
+website: https://github.io/aina21/hyf-homework/html-css/week2
+----------------------------------------------------------*/
+
+/* -----------------------------------------------------------
+CONTENTS:
+=Header
+=banner
+=Navigation
+=content
+=aside
+=Logoes
+=Footer
+=Media
+------------------------------------------------------------*/
+
+/* ----------------------- */
+/* GENERAL STYLES */
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        
+  }
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lato', sans-serif;
+    /* background: #eeffdd; */
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer, .content, .header{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+h2{
+    text-transform: uppercase;
+}
+a{
+    text-decoration: none;
+    color: azure;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+/* ----------------------- */
+/* HEADER STYLES */
+.header{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.44);
+    background: #002288;
+}
+.header span{
+    color: #929cb5;
+}
+.header h1{
+    text-transform: uppercase;
+    font-size: 25px;
+    color: azure;
+}
+/* ----------------------- */
+/* BANNER STYLES */
+#img-banner{
+    height: 50%;
+    width: 100%;
+}
+
+/* ----------------------- */
+/* NAVIGATION STYLES */
+.container{
+    display: flex;
+    padding-left: 8.5%;
+    background: #3377bb;
+    margin:0px;
+    
+}
+.container li{
+  
+    padding:1em;
+    
+    transition: background-color 0.5s ease;
+}
+.container li:hover,
+.container li:focus{
+background: #002188;
+}
+
+/* ----------------------- */
+/* CONTENT STYLES */
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* margin-right: 0em; */
+    font-size: 14px;
+    font-weight: 400;
+    height: 100%;
+    
+}
+.content section{
+    width: 45%;
+    height:50%;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+.content h2{
+    font-size: 17px;
+}
+
+.content :nth-child(1){  order:1;}
+.content :nth-child(2){order: 3;}
+.content :nth-child(3){
+    order: 2;
+    flex-basis: 60%;
+}
+.content :nth-child(4){
+    order: 4;
+    flex-basis: 60%;
+}
+
+/* ----------------------- */
+/* ASIDE STYLES */
+.aside{
+    flex-basis: 30%;
+
+}
+.aside h2{
+    font-size: 14px;
+}
+.aside p{
+    font-weight: lighter;
+    font-size: 12px;
+}
+/* ----------------------- */
+/* LOGOES STYLES */
+.logo{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+.item{
+    width: 5em;
+    height: 5em;
+    margin: 10px;
+}
+/* ----------------------- */
+/* FOOTER STYLES */
+.footer{
+    display: flex;
+    background: #cc6622;
+    color: #FAFAFA;
+    justify-content: space-between;
+}
+.footer-col{
+    justify-self: center;
+    font-weight: 300;
+    margin-right: 20px;
+}
+.footer-col a{
+   border-bottom: 1px solid rgba(0,0,0,0.1);
+   line-height:30px;
+   transition: 0.3s;
+}
+.footer-col a:hover,
+.footer-col a:focus
+{color: black;}
+.footer-col h2{
+    font-size: 15px;
+}
+/* for embeded map
+ https://www.embedgooglemap.net/ */
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 200px;
+    width: 200px;
+}
+
+.gmap_canvas {
+    position: absolute;
+    overflow: hidden;
+    background: none !important;
+    height: 200px;
+    width: 200px;
+}
+/* ----------------------- */
+/* MEDIA STYLES */
+/* for phone screen */
+@media (max-width: 600px){
+  
+    .container{
+        flex-direction:column;
+    }
+    .footer{
+
+        flex-direction:column;
+    }
+    .item{
+        width: auto;
+        height: auto;
+        margin: 5px;
+    }
+    .mapoute, .gmap_canvas{
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/* ----------------------- */
