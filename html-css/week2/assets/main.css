@@ -211,8 +211,8 @@ background: #002188;
         flex-direction:column;
     }
     .item{
-        width: 3em;
-        height: auto;
+        width: 2em;
+        height: 2em;
         margin: 5px;
     }
     .mapoute, .gmap_canvas{
