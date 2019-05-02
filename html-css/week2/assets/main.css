@@ -204,7 +204,7 @@ background: #002188;
         flex-direction:column;
     }
     .item{
-        width: auto;
+        width:1.5em;
         height: auto;
         margin: 5px;
     }
