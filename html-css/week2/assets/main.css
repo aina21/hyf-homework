@@ -183,16 +183,27 @@ background: #002188;
 .mapouter {
     position: relative;
     text-align: right;
-    height: 200px;
-    width: 200px;
+ 
 }
 
 .gmap_canvas {
     position: absolute;
     overflow: hidden;
     background: none !important;
-    height: 200px;
-    width: 200px;
+    
+}
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
 }
 /* ----------------------- */
 /* MEDIA STYLES */
@@ -215,10 +226,7 @@ background: #002188;
         height: 2em;
         margin: 5px;
     }
-    .mapoute, .gmap_canvas{
-        width: 100%;
-        height: auto;
-    }
+   
 }
 
 
