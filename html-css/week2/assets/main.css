@@ -228,6 +228,14 @@ background: #002188;
     }
    
 }
-
+/* for larg screen */
+@media screen and (min-width: 1400px) {
+    .footer, .content, .header{
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+  }
 
 /* ----------------------- */
