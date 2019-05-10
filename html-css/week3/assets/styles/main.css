@@ -235,6 +235,9 @@ input[type=checkbox]:checked ~ .shipping-toggle {
     .signup__style{
     	width: 300px;
     }
+    select{
+        width: 50%;
+    }
 }
 
 
