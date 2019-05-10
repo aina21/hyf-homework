@@ -216,13 +216,16 @@ label img {
 
 /* ----------------------- */
 /* SHIPPING FORM STYLES */
-.shipping__form{
-    visibility: hidden;
+.shipping-toggle{
+    display: none;
 }
 
-#signup__shipping:checked ~ .shipping__form{
-    visibility:visible;
-}
+input[type=checkbox]:checked ~ .shipping-toggle {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+  }
 
 
 /* ----------------------- */

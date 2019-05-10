@@ -61,8 +61,8 @@
                 <!-- card type -->
                 <li>
                     <label for="payment__card-type">
-                        Card type
-                        <select name="card-type" id="payment__card-type">
+                        Card type<span class="required">*</span>
+                        <select name="card-type" id="payment__card-type" required>
                             <option value="visa" selected>Visa</option>
                             <option value="master">Master</option>
                             <option value="amex">Amex</option>
@@ -72,7 +72,7 @@
 
                 <!-- credit card number -->
                 <li><label for="payment__card-number">
-                        Credit card number
+                        Credit card number<span class="required">*</span>
                         <input type="tel" name="card-number" id="payment__card-number"
                             pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$"
                             required>
@@ -89,21 +89,21 @@
 
                 <li>
                     <label for="payment__first-name">
-                        First name
+                        First name<span class="required">*</span>
                         <input type="text" name="first-name" id="payment__first-name" required>
                     </label>
                 </li>
 
                 <!-- expire date -->
                 <li><label for="payment__date">
-                        Expiry date
+                        Expiry date<span class="required">*</span>
                         <input type="month" id="start" name="payment__date" required>
                     </label>
                 </li>
                 <!-- ccv -->
                 <li>
                     <label for="payment__ccv">
-                        CCV
+                        CCV<span class="required">*</span>
                         <input type="tel" name="ccv" id="payment__ccv" pattern="\d{3}" maxlength="3" required>
                 </li>
                 <!-- next -->

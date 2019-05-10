@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/styles/resset.css">
     <link rel="stylesheet" href="assets/styles/main.css">
-    <script src="assets/javascript/main.js"></script>
 
     <title>Zalando</title>
 </head>
@@ -339,45 +338,45 @@
                     </label></li>
 
 
-                <!-- shipping checkbox -->
+    
+
+
+                <!-- shipping -->
                 <li>
+                    <!-- shipping checkbox -->
                     <label for="signup__shipping">
                         <p>
-                            Use the same address for billing and shipping?
-                            Uncheck below to fill out a separate shipping address.</p>
-                        Shipping address
-                        <input type="checkbox" name="Shipping" id="signup__shipping" onclick="func();">
-                    </label>
-                </li>
+                                    Use the same address for billing and shipping?
+                                    Uncheck below to fill out a separate shipping address.</p>
+                                Shipping address</label>
 
-
-                <!-- shipping form -->
-                <li>
-
-                    <form action="/pages/page2.html" method="GET">
+                    <input type="checkbox" name="Shipping" id="signup__shipping" >
+                    
+                    <!-- shipping form -->
+                    <ul class="shipping-toggle">
+                        
                         <!-- firstname -->
-                        <ul class="shipping__form">
                             <li>
                                 <label for="shihipping__first_name">
-                                    First Name<span class="required">*</span>
-                                    <input class="shipping" type="hidden" id="shipping__1" name="first_name" required>
+                                    First Name
+                                    <input class="shipping"  id="shipping__first-name" name="first_name" type="text" >
                                 </label>
                             </li>
 
                             <!-- last name -->
                             <li><label for="shipping__last-name">
-                                    Last Name<span class="required">*</span>
-                                    <input class="shipping" type="hidden" id="shipping__last-name" name="last-name"
-                                        required>
+                                    Last Name
+                                    <input class="shipping"  id="shipping__last-name" name="last-name" type="text"
+                                        >
                                 </label>
                             </li>
                             <!-- country -->
                             <li>
                                 <label for="shipping__country">
-                                    Country<span class="required">*</span>
+                                    Country
 
                                     <select class="shipping" id="shipping__country" name="signup__country"
-                                        type="hidden">
+                                        >
                                         <option value="Afghanistan">Afghanistan</option>
                                         <option value="Åland Islands">Åland Islands</option>
                                         <option value="Albania">Albania</option>
@@ -641,23 +640,23 @@
                             <!-- street addres -->
                             <li>
                                 <label for="shipping__street-address">
-                                    Street address<span class="required">*</span>
-                                    <input class="shipping" type="hidden" name="street-address"
-                                        id="shipping__street-address" required>
+                                    Street address
+                                    <input class="shipping"  name="street-address"
+                                        id="shipping__street-address" type="text" >
                                 </label>
                             </li>
                             <!-- postal code -->
                             <li>
                                 <label for="shipping__post-code">
-                                    Post Code<span class="required">*</span>
-                                    <input class="shipping" type="hidden" name="post-code" id="shipping__post-code"
-                                        maxlength="4" required>
+                                    Post Code
+                                    <input class="shipping"  name="post-code" id="shipping__post-code"
+                                        maxlength="4" type="text" >
                                 </label>
                             </li>
-                        </ul>
-                    </form> <!-- shipping form end -->
-                </li>
-
+                    
+                        </ul><!-- shipping form end -->
+    </li>
+            
                 <!-- profile description -->
                 <li><label for="signup__discription">
                         <p>profile description</p>
