@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../assets/styles/resset.css">
+    <link rel="stylesheet" href="../assets/styles/main.css">
+
+    <title>Zalando</title>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <nav>
+            <ul class="menu">
+                <!-- logo -->
+                <li><img src="../assets/images/Zalando-SE_logo.png" alt="logo" class="logo"></li>
+                <!-- menu -->
+                <li><a href="../index.html">page1</a></li>
+                <li><a href="../pages/page2.html">page2</a></li>
+                <li><a href="../pages/page3.html">page3</a></li>
+                <li><a href="../pages/page4.html">page4</a></li>
+            </ul>
+        </nav>
+        <!-- progress -->
+        <ul id="progress" aria-rol="progress">
+            <li class="active">Account </li>
+            <li class="active">Contact </li>
+            <li class="active">Best Offer</li>
+            <li class="active">Payment </li>
+        </ul><!-- end progress -->
+        <!-- content -->
+        <section class="content">
+            <h1>Sign up to Zalando </h1>
+            <p>
+                We can’t wait to help you improve your life-style and gain the attention from people around you!
+                Sign up below to save up to 70% on apparel, hand-bags and cosmetics. Our agents are busy picking the
+                best offers that match your preferences and style. Every week we will send you a hand-picked selection -
+                we just need to know a few details about your first...</p>
+        </section><!-- end content -->
+    </header><!-- end header -->
+
+    <!-- main -->
+    <main>
+        <form action="../index.html" method="GET">
+            <ul class="signup">
+
+                <li>
+                    <h2>step 4/4 - Payment</h2>
+                    <p>Please fill in your payment data</p>
+                </li>
+                <!-- name on card -->
+                <li><label for="payment__name-on-card">
+                        Name on card<span class="required">*</span>
+                        <input type="text" name="name-on-card" id="payment__name-on-card" required>
+                    </label>
+                </li>
+                <!-- card type -->
+                <li>
+                    <label for="payment__card-type">
+                        Card type
+                        <select name="card-type" id="payment__card-type">
+                            <option value="visa" selected>Visa</option>
+                            <option value="master">Master</option>
+                            <option value="amex">Amex</option>
+                        </select>
+                    </label>
+                </li>
+
+                <!-- credit card number -->
+                <li><label for="payment__card-number">
+                        Credit card number
+                        <input type="tel" name="card-number" id="payment__card-number"
+                            pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$"
+                            required>
+                    </label></li>
+
+                <!-- re-enter password -->
+                <li>
+                    <label for="signup_re-enter-password">
+                        Re-enter password<span class="required">*</span>
+                        <input type="password" name="re-enter-password" id="signu__re-enter-password" required>
+                    </label>
+                </li>
+                <!-- first name -->
+
+                <li>
+                    <label for="payment__first-name">
+                        First name
+                        <input type="text" name="first-name" id="payment__first-name" required>
+                    </label>
+                </li>
+
+                <!-- expire date -->
+                <li><label for="payment__date">
+                        Expiry date
+                        <input type="month" id="start" name="payment__date" required>
+                    </label>
+                </li>
+                <!-- ccv -->
+                <li>
+                    <label for="payment__ccv">
+                        CCV
+                        <input type="tel" name="ccv" id="payment__ccv" pattern="\d{3}" maxlength="3" required>
+                </li>
+                <!-- next -->
+                <li><a href="../index.html">
+                        <button type="submit" name="next-step" class="submit">
+                            Next step</button></a>
+                </li>
+            </ul>
+        </form><!-- signup form end -->
+    </main>
+    <!-- end main -->
+</body>
+
+</html>
