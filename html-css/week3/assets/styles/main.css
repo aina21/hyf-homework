@@ -232,11 +232,16 @@ input[type=checkbox]:checked ~ .shipping-toggle {
 /* MEDIA STYLES */
 /* for phone screen */
 @media (max-width: 600px){
-    .signup__style{
-    	width: 300px;
+    nav ul{
+        flex-direction: column;
     }
-    select{
-        width: 50%;
+    label{
+		display:flex;
+		flex-direction:column;
+	}
+    .signup__style{
+    	flex-direction:column;
+    	width:100%;
     }
 }
 
