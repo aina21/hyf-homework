@@ -22,14 +22,16 @@ let dogYearFuture = 2027;
 
 let dogYear = dogYearFuture - dogYearOfBirth;
 
-let shouldShowResultInDogYears = true;
+let shouldShowResultInDogYears = [true, false];
 
-if(shouldShowResultInDogYears){
+
+if(shouldShowResultInDogYears[Math.floor(Math.random() * 2)]){
     console.log("Your dog will be " + dogYear + " human years old in " + yearFuture);
 }
 else{
     console.log("Your dog will be " + (dogYear * 7) +" dog years old in " + yearFuture);
 }
+
 
 //  3. Housey pricey (A house price estimator)
 //input data
@@ -63,8 +65,7 @@ let firstWords = ["Easy", "Awesome", "Corporate", "Amazing", "Magnificent", "Won
 let secondWords = ["Company", "Operation", "Corporation", "Partnership", "Agency", "Institution", 
 "multinational", "Group", "Business", "Firm"];
 
-const randomNumber = [(Math.floor(Math.random() * 10) + 0) , (Math.floor(Math.random() * 10) + 0)];
+const randomNumber = [Math.floor(Math.random() * 10) , Math.floor(Math.random() * 10)];
 let newStartupName = firstWords[randomNumber[0]] + " " + secondWords[randomNumber[1]]
 
 console.log("The startup: \"" + newStartupName + "\" contains " + newStartupName.length + " characters");
-
