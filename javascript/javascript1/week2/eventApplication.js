@@ -16,8 +16,7 @@ const weekDay = [
     "Saturday",
 ];
 
-function getEventWeekday(daysLeft)
-{
+function getEventWeekday(daysLeft) {
     const today = new Date();
     const result = (daysLeft + today.getDay()) % 7
     return weekDay[result];
