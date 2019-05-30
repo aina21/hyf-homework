@@ -58,7 +58,7 @@ const boughtCandy = [];
 total = 0;
 console.log("You have " + amountToSpend + " amount to spend");
 while (canBuyMoreCandy(total)) {
-    let candyType = Math.floor(Math.random() * 3);
+    let candyType = Math.floor(Math.random() * 4);
     let weight = Math.random() * 10;
 
     boughtCandy.push({
