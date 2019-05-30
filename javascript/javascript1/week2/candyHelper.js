@@ -7,7 +7,7 @@
 
 
 //amount of money that customer want to spend for buying deliciouse candys
-const amountToSpend = Math.floor((Math.random() * 90) + 10);
+const amountToSpend = Math.floor((Math.random() * 90) + 100);
 
 //candy class
 class Candy {
@@ -16,7 +16,7 @@ class Candy {
         this.pricePerGram = pricePerGram;
     }
     addCandy(weight) {
-        return Math.floor(this.pricePerGram * weight);
+        return this.pricePerGram * weight;
     }
 };
 
@@ -29,8 +29,8 @@ const candyTable = [
 ]
 
 //check if we have more buget for buy more candys
-function canBuyMoreCandy(boughtCandy) {
-    if (amountToSpend > boughtCandy) {
+function canBuyMoreCandy(total) {
+    if (amountToSpend > total) {
         console.log("You can buy more, so please do!");
         return true;
     } else {
@@ -39,16 +39,37 @@ function canBuyMoreCandy(boughtCandy) {
     }
 }
 
-//run program
-let boughtCandy = 0;
-console.log("You have " + amountToSpend + " amount to spend");
-while (canBuyMoreCandy(boughtCandy)) {
-    let candyType = Math.floor(Math.random() * 3);
-    let weight = (Math.random() * 10).toFixed(2);
-    console.log("You add " + weight + " of " + candyTable[candyType].candyType + " to your basket.");
+//show basket
+function showBasket() {
+    for (const candyT of candyTable) {
+        let weightTotal = 0;
+        for (const candy of boughtCandy) {
+            if (candy.type === candyT.candyType) {
+                weightTotal += candy.weight;
+            };
+        }
+        console.log("you have " + candyT.candyType + " and total weight of it is " + weightTotal);
 
-    boughtCandy += candyTable[candyType].addCandy(weight);
+    }
 }
 
+//run program
+const boughtCandy = [];
+total = 0;
+console.log("You have " + amountToSpend + " amount to spend");
+while (canBuyMoreCandy(total)) {
+    let candyType = Math.floor(Math.random() * 3);
+    let weight = Math.random() * 10;
+
+    boughtCandy.push({
+        type: candyTable[candyType].candyType,
+        weight: weight
+    });
+
+    total += candyTable[candyType].addCandy(weight);
+}
+
+console.log("In your basket you have: ")
+showBasket();
 
 
