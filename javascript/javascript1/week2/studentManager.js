@@ -14,7 +14,7 @@ function addStudentToClass(studentName) {
         ERRORFULL: "ERROR: There are no more seats available in the class.",
         ERRORSAME: "ERROR: You can not add same persone in class.",
         ERROREMPETY: "ERROR: Please write student name.",
-        Queen: "We always have a seat for our Queen",
+        QUEEN: "We always have a seat for our Queen",
         SUCCESSED: " add to the class"
 
     }
@@ -23,7 +23,7 @@ function addStudentToClass(studentName) {
 
     if (studentName === "Queen") {
         class07Students.push("Queen");
-        result = massage.Queen;
+        result = massage.QUEEN;
     } else if (getNumberOfStudents() > 6) {
         result = massage.ERRORFULL;
     } else if (studentName === "") {
