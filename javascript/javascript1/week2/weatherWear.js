@@ -25,5 +25,5 @@ function chooseClothesBaseOnTemperature(temperature) {
 }
 
 //run program
-console.log("I recommend you to wear " + chooseClothesBaseOnTemperature(30));
+console.log(`I recommend you to wear ${chooseClothesBaseOnTemperature(30)}`);
 

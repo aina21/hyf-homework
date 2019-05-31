@@ -66,7 +66,7 @@ function IsDuplicate(studentName) {
 //run program
 console.log(addStudentToClass("Ida Naderian"));
 console.log(addStudentToClass("Linda Martin"));
-console.log(addStudentToClass("Ida "));
+console.log(addStudentToClass("shing huwan"));
 console.log(addStudentToClass("Sara Bro"));
 console.log(addStudentToClass("Ida Naderian"));
 console.log(addStudentToClass(""));

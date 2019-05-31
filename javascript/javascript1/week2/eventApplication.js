@@ -23,5 +23,5 @@ function getEventWeekday(daysLeft) {
 }
 
 //run program
-console.log("Your event is on " + getEventWeekday(9));
+console.log(`Your event is on ${getEventWeekday(9)}`);
 
