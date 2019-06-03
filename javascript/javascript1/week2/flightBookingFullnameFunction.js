@@ -6,10 +6,6 @@
  * and also have option to write formal fullname
  */
 
-const firstName = "Benjamin";
-const lastName = "Hughes";
-let useFormalName = true;
-
 function getFullname(firstName, lastName, useFormalName) {
     let fullname = firstName + " " + lastName;
     if (useFormalName) {
@@ -20,5 +16,5 @@ function getFullname(firstName, lastName, useFormalName) {
 }
 
 //run program
-console.log(getFullname(firstName, lastName, useFormalName));
+console.log(getFullname("Benjamin", "Hughes", true));
 
