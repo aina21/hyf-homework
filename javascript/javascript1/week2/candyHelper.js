@@ -41,21 +41,17 @@ function canBuyMoreCandy(total) {
 
 //show basket
 function showBasket() {
-    for (const candyT of candyTable) {
-        let weightTotal = 0;
-        for (const candy of boughtCandy) {
-            if (candy.type === candyT.candyType) {
-                weightTotal += candy.weight;
-            };
-        }
-        console.log(`you have ${candyT.candyType} and total weight of it is ${weightTotal}`);
+    let weightTotal = 0;
+    for (const candy of boughtCandy) {
+        weightTotal += candy.weight;
     }
+    console.log("you have " + boughtCandy.length + " and total weight of it is " + weightTotal);
 }
 
 //run program
 const boughtCandy = [];
 total = 0;
-console.log(`You have ${amountToSpend} amount to spend`);
+console.log("You have " + amountToSpend + " amount to spend");
 while (canBuyMoreCandy(total)) {
     let candyType = Math.floor(Math.random() * 4);
     let weight = Math.random() * 10;
@@ -68,7 +64,7 @@ while (canBuyMoreCandy(total)) {
     total += candyTable[candyType].addCandy(weight);
 }
 
-console.log(`In your basket you have: `)
+console.log("In your basket you have: ");
 showBasket();
 
 

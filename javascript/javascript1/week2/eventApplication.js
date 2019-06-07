@@ -17,11 +17,16 @@ const weekDay = [
 ];
 
 function getEventWeekday(daysLeft) {
+    if (daysLeft === undefined){
+        throw console.error("Please add days to left");  
+    }
     const today = new Date();
     const result = (daysLeft + today.getDay()) % 7
     return weekDay[result];
 }
 
 //run program
-console.log(`Your event is on ${getEventWeekday(9)}`);
+console.log("Your event is on" + getEventWeekday(9));
+console.log("Your event is on" + getEventWeekday(400));
+console.log("Your event is on" + getEventWeekday());
 
