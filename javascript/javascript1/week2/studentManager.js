@@ -6,7 +6,7 @@
  * and ofcourse we always have seat for Queen.
  */
 
- //write prototype for checking empty string
+//write prototype for checking empty string
 String.prototype.isEmpty = function() {
     return (this.length === 0 || !this.trim());
 };
