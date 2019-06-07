@@ -19,7 +19,7 @@ function addStudentToClass(studentName) {
 
     }
 
-    let result = "";
+    let result;
 
     if (studentName === "Queen") {
         class07Students.push("Queen");
@@ -28,7 +28,7 @@ function addStudentToClass(studentName) {
         result = massage.ERRORFULL;
     } else if (studentName === "") {
         result = massage.ERROREMPETY;
-    } else if (IsDuplicate(studentName)) {
+    } else if (isDuplicate(studentName)) {
         result = massage.ERRORSAME;
     } else {
         class07Students.push(studentName);
@@ -51,7 +51,7 @@ function showClass() {
 }
 
 //check if student registered in class before; prevent duplicate
-function IsDuplicate(studentName) {
+function isDuplicate(studentName) {
     for (let i = 0; i < getNumberOfStudents(); i++) {
         if (class07Students[i] === studentName) {
             return true;
