@@ -15,7 +15,7 @@ function getFullname(firstName, lastName, useFormalName) {
     const fullname = firstName + " " + lastName;
     if(fullname.isEmpty()){
         throw console.error("Please add your name");
-    }else if (useFormalName) {
+    } else if (useFormalName) {
         return "Lord " + fullname;
     } else {
         return fullname;
