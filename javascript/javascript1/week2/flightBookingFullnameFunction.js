@@ -7,7 +7,10 @@
  */
 
 function getFullname(firstName, lastName, useFormalName) {
-    let fullname = firstName + " " + lastName;
+    const fullname = firstName + " " + lastName;
+    if(fullname === " "){
+        return "Please add your name";
+    }
     if (useFormalName) {
         return "Lord " + fullname;
     } else {
@@ -17,4 +20,8 @@ function getFullname(firstName, lastName, useFormalName) {
 
 //run program
 console.log(getFullname("Benjamin", "Hughes", true));
+console.log(getFullname("Benjamin", "Hughes", false));
+console.log(getFullname("Benjamin", "", false));
+console.log(getFullname("", "Hughes", true));
+console.log(getFullname("", "", true));
 

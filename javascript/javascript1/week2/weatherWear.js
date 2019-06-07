@@ -21,9 +21,19 @@ function chooseClothesBaseOnTemperature(temperature) {
         return clothesToWear.AUTUM;
     } else if (temperature <= 5) {
         return clothesToWear.WINTER;
+    } else {
+        throw console.error("Please add right temperature");
+        
     }
 }
 
 //run program
-console.log(`I recommend you to wear ${chooseClothesBaseOnTemperature(30)}`);
-
+console.log("I recommend you to wear" + chooseClothesBaseOnTemperature(30));
+console.log("I recommend you to wear" + chooseClothesBaseOnTemperature(15));
+console.log("I recommend you to wear" + chooseClothesBaseOnTemperature(25));
+console.log("I recommend you to wear" + chooseClothesBaseOnTemperature(20));
+console.log("I recommend you to wear" + chooseClothesBaseOnTemperature(59));
+console.log("I recommend you to wear" + chooseClothesBaseOnTemperature(5));
+console.log("I recommend you to wear" + chooseClothesBaseOnTemperature(-1));
+// console.log("I recommend you to wear" + chooseClothesBaseOnTemperature("hi"));
+// console.log("I recommend you to wear" + chooseClothesBaseOnTemperature());
