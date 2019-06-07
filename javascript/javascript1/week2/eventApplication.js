@@ -16,8 +16,13 @@ const weekDay = [
     "Saturday",
 ];
 
+//write prototype for checking empty string
+String.prototype.isEmpty = function() {
+    return (this.length === 0 || !this.trim());
+};
+
 function getEventWeekday(daysLeft) {
-    if (daysLeft === undefined){
+    if (daysLeft.isEmpty()){
         throw console.error("Please add days to left");  
     }
     const today = new Date();

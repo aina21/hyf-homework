@@ -6,6 +6,11 @@
  * and ofcourse we always have seat for Queen.
  */
 
+ //write prototype for checking empty string
+String.prototype.isEmpty = function() {
+    return (this.length === 0 || !this.trim());
+};
+
 const class07Students = [];
 
 //add student to class
@@ -26,7 +31,7 @@ function addStudentToClass(studentName) {
         result = massage.QUEEN;
     } else if (getNumberOfStudents() > 6) {
         result = massage.ERRORFULL;
-    } else if (studentName === "") {
+    } else if (studentName.isEmpty()) {
         result = massage.ERROREMPETY;
     } else if (isDuplicate(studentName)) {
         result = massage.ERRORSAME;

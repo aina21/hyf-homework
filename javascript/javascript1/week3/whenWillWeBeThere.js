@@ -23,4 +23,4 @@ const travelInformation = {
 
 //run
 const travelTime = travelInformation.timeConventor(travelInformation.timeToArrive());
-console.log(travelTime); // 4 hours and 42 minutes
+console.log(travelTime); // 8 hours and 38 minutes
