@@ -90,6 +90,13 @@ function removeDuplicate(list = songDatabase, comp = 'id') {
     });
 }
 
+//fuzzy search
+function fuzzySearch(title, searchTerm){
+    return searchTerm.split(" ").every((item) =>{
+          return title.toLowerCase().includes(item.toLowerCase())
+      })
+  }
+  
 //run
 //add song to database
 addSongToDatabase(createSong(3, "Nothing Else Matters", "Metallica"));
@@ -133,5 +140,8 @@ const searchedSong2 = getSongByTitle("when is enough too");
 console.log("Third search: "); // returns undefined
 searchedSong2.showAll();
 
-
+//try use fuzzy search
+console.log(fuzzySearch('When is Enough too Little?', 'When Is eno To little?'));
+console.log(fuzzySearch('When is Enough too Little?', 'When Is enoug To little?'));
+console.log(fuzzySearch('When is Enough too Little?', 'When Isenoug To little?'));
 
