@@ -12,15 +12,15 @@ const travelInformation = {
         const time = this.destinationDistance / this.speed;
         return time;
     },
-    timeConventor: function(){
+    timeConventer: function(){
         const time = this.timeToArrive()
         const hour = parseInt(time) ;
         let minute =  parseInt((time - Math.floor(time)) * 60 );
-        return `${hour} hours and ${minute} minutes`;
+        return hour + " hours and " + minute + " minutes" ;
 
     }
   };
 
 //run
-const travelTime = travelInformation.timeConventor(travelInformation.timeToArrive());
+const travelTime = travelInformation.timeConventer();
 console.log(travelTime); // 8 hours and 38 minutes

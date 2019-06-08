@@ -17,19 +17,28 @@ String.prototype.isEqual = function (str) {
 
 Array.prototype.showAll = function(){
     for(song of this){
-        song.showAll();
+        console.log("id of song is : " + this.id + ", Title : " + this.title + ", Artist : " + this.artist); 
     }
 }
-//song 
-class song {
-    constructor(id, title, artist) {
-        this.id = id;
-        this.title = title;
-        this.artist = artist;
-    }
+// //song 
+// class song {
+//     constructor(id, title, artist) {
+//         this.id = id;
+//         this.title = title;
+//         this.artist = artist;
+//     }
 
-    showAll(){
-        console.log("id of song is : " + this.id + ", Title : " + this.title + ", Artist : " + this.artist); 
+//     showAll(){
+//         console.log("id of song is : " + this.id + ", Title : " + this.title + ", Artist : " + this.artist); 
+//     }
+// }
+
+//create song 
+function createSong(id, title, artist){
+    return {
+        id:id,
+        title:title,
+        artists:artist
     }
 }
 
@@ -83,17 +92,17 @@ function removeDuplicate(list = songDatabase, comp = 'id') {
 
 //run
 //add song to database
-addSongToDatabase(new song(3, "Nothing Else Matters", "Metallica"));
-addSongToDatabase(new song(2, "Zombie", "The Cranberries"));
-addSongToDatabase(new song(1, "Paint It, Black", "The Rolling Stone"));
-addSongToDatabase(new song(2, "Zombie", "The Cranberries"));
-addSongToDatabase(new song(4, "Highway to Hell", "ACDC"));
-addSongToDatabase(new song(5, "(I Can\'t Get No) Satisfaction", "The Rolling Stone"));
-addSongToDatabase(new song(6, "Dream on", "Aerosmith"));
-addSongToDatabase(new song(7, "Try", "P!nk"));
-addSongToDatabase(new song(11, "Try", "Colbie Caillat"));
-addSongToDatabase(new song(2, "Zombie", "The Cranberries"));
-addSongToDatabase(new song(8, "Imagine", "John Lennon"));
+addSongToDatabase(createSong(3, "Nothing Else Matters", "Metallica"));
+addSongToDatabase(createSong(2, "Zombie", "The Cranberries"));
+addSongToDatabase(createSong(1, "Paint It, Black", "The Rolling Stone"));
+addSongToDatabase(createSong(2, "Zombie", "The Cranberries"));
+addSongToDatabase(createSong(4, "Highway to Hell", "ACDC"));
+addSongToDatabase(createSong(5, "(I Can\'t Get No) Satisfaction", "The Rolling Stone"));
+addSongToDatabase(createSong(6, "Dream on", "Aerosmith"));
+addSongToDatabase(createSong(7, "Try", "P!nk"));
+addSongToDatabase(createSong(11, "Try", "Colbie Caillat"));
+addSongToDatabase(createSong(2, "Zombie", "The Cranberries"));
+addSongToDatabase(createSong(8, "Imagine", "John Lennon"));
 
 
 //add song to favorite
