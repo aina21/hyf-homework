@@ -17,7 +17,7 @@ String.prototype.isEqual = function (str) {
 
 Array.prototype.showAll = function(){
     for(song of this){
-        console.log("id of song is : " + this.id + ", Title : " + this.title + ", Artist : " + this.artist); 
+        console.log("id of song is : " + song.id + ", Title : " + song.title + ", Artist : " + song.artist); 
     }
 }
 // //song 
@@ -38,7 +38,7 @@ function createSong(id, title, artist){
     return {
         id:id,
         title:title,
-        artists:artist
+        artist:artist
     }
 }
 
@@ -143,5 +143,5 @@ searchedSong2.showAll();
 //try use fuzzy search
 console.log(fuzzySearch('When is Enough too Little?', 'When Is eno To little?'));
 console.log(fuzzySearch('When is Enough too Little?', 'When Is enoug To little?'));
-console.log(fuzzySearch('When is Enough too Little?', 'When Isenoug To little?'));
+console.log(fuzzySearch('When is Enough too Little?', 'WhenIsTo little?'));
 
