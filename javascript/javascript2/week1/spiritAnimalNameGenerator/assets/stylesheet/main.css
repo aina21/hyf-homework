@@ -1,0 +1,74 @@
+/* --------------------------------------------------------
+Style Sheet for Hack Your Future, HTML-CSS, homework Week3
+author: Ida Naderian
+email: ida.naderian@gmail.com
+website: 
+----------------------------------------------------------*/
+
+/* -----------------------------------------------------------
+CONTENTS:
+=
+------------------------------------------------------------*/
+
+/* ----------------------- */
+/* GENERAL STYLES */
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
+
+body{
+    background: url("../images/wolf-torque-wolf-moon-cloud-45242.jpeg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Lato', sans-serif;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+/* .center{
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    margin-top: 22px;
+} */
+/* ----------------------- */
+/* HEADER STYLES */
+header {
+    padding: 60px;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+  }
+header h1{
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* ----------------------- */
+/* FORM STYLES */
+.alert-box{
+    display: none;
+}
+.form{
+    width: 70%;
+    /* margin: 30px auto; */
+    padding: 10px 10px 10px 10px;
+    box-shadow: 0 0 8px #fff;
+    position: relative;
+    color: white;
+}
+
+.result-button {
+    width: inherit;
+    text-transform: uppercase;
+    margin-top: 14px;
+}
+.result-photo{
+    width: fit-content;
+    height: auto;
+    
+}
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" />
+ <link rel="stylesheet" href="assets/stylesheet/main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title>Spirit Animal Name Generator</title>
+</head>
+
+<body>
+  <!-- header -->
+  <header >
+    <h1 class="h1">sprit animal</h1>
+  </header><!-- end header -->
+
+  <!-- main -->
+  <main>
+    <!-- form -->
+    <div class="form-group form center-block" role="form">
+      <!-- Error box -->
+        <div class="alert alert-danger alert-box" role="alert">
+            Please write your name
+        </div>
+        <!-- result box -->
+        <div class="result center-block" role="imagebox">
+            <h2></h2>
+            
+            <img class="img-rounded img-responsive center-block result-photo " src="https://www.yogiapproved.com/wp-content/uploads/2015/01/spirit-animal-featured.jpg" alt="Spirit Animal">
+        </div>
+        <!-- input name -->
+      <label for="usr__firstname"> Name: </label>
+      <input type="text" class="form-control usr__firstname" id="usr__firstname" />
+      <label for="sel1">How do you like to show result:</label>
+      <!-- result option select -->
+      <select class="form-control usr__option">
+        <option value="click" selected> Click Button </option>
+        <option value="hover"> Hover Input </option>
+      </select>
+      <!-- result button -->
+      <button type="button" class="btn btn-info result-button center-block">RESULT</button>
+
+    </div><!-- end form -->
+    
+  </main> <!-- end main -->
+
+  <script src="assets/scripts/main.js"></script>
+</body>
+
+</html>
