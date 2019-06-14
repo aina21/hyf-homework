@@ -1,9 +1,3 @@
-/**
- * Javascript file for Hack Your Future, Javascript2, homework Week2
- * author: Ida Naderian
- * 
- * spirit Animal 
- */
 
 console.log("loaded!!");
 
@@ -38,6 +32,12 @@ const spiritAnimal = [{
 
 ];
 
+//declear variables
+const image = document.querySelector('img.result-photo');
+const btnResult = document.querySelector('button.result-button');
+const inName = document.querySelector('input.usr__firstname');
+const select = document.querySelector('select.usr__option');
+
 /**
  * change image in image box
  *
@@ -56,7 +56,7 @@ function changeImage(url, img) {
  * @param {*} input
  * @returns boolean
  */
-function isNameWrite(input) {
+function isNameWrite() {
     if (inName.value === "") {
         return true;
     } else {
@@ -84,15 +84,7 @@ function showResult() {
     }
 }
 
-//run
-
-const image = document.querySelector('img.result-photo');
-const btnResult = document.querySelector('button.result-button');
-const inName = document.querySelector('input.usr__firstname');
-const select = document.querySelector('select.usr__option');
-console.log(select.options[0].selected)
-
-
+//events
 btnResult.addEventListener('click', function () {
     showResult();
 

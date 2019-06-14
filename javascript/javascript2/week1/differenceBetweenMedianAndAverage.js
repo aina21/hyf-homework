@@ -1,9 +1,3 @@
-/**
- * Javascript file for Hack Your Future, Javascript2, homework Week2
- * author: Ida Naderian
- * 
- * find average and median
- */
 
 // use the functions on this array
 const housePrices = [3000000, 3500000, 1300000, 40000000, 100000000, 8000000, 2100000];
@@ -17,7 +11,11 @@ const housePrices = [3000000, 3500000, 1300000, 40000000, 100000000, 8000000, 21
  */
 function average(list) {
 
-    sum = list.reduce((sum, price) => sum += price)
+    // sum = list.reduce((sum, price) => sum += price)
+    let sum = 0;
+    for(item of list){
+        sum += item;
+    }
     return sum / list.length;
 }
 
