@@ -16,9 +16,13 @@ console.log(getAvailableProducts());
 const products = getAvailableProducts();
 const searchInput = document.querySelector('.search > input');
 const countrySelect = document.querySelector('.country > select');
-// const sortSelect = document.querySelector('.sort > select');
+const sortSelect = document.querySelector('.sort > select');
 
-console.log(countrySelect);
+const SORTOPTION={
+    NAME: 'name',
+    EXPENSIVE: 'expensive',
+    CHEAP: 'cheap'
+}
 
 /**
  * render product
@@ -90,4 +94,21 @@ countrySelect.addEventListener('change', function(){
 })
 
 //sort list
+sortSelect.addEventListener('change', function(){
+    let result = products;
+    if(sortSelect.value === SORTOPTION.NAME){
+        result = products.sort((obj1, obj2)=> {
+            return obj1.name > obj2.name ? 1 : -1;
+        });
+    } else if (sortSelect.value === SORTOPTION.CHEAP){
+        result = products.sort((obj1,obj2) =>{
+            return obj1.price > obj2.price ? 1 : -1;
+        })
+    } else if (sortSelect.value === SORTOPTION.EXPENSIVE){
+        result = products.sort((obj1,obj2) =>{
+            return obj1.price < obj2.price ? 1 : -1;
+        })    }
 
+    renderProducts(result)
+
+})
