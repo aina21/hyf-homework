@@ -2,9 +2,6 @@ console.log('Script loaded');
 
 console.log(getAvailableProducts());
 
-
-//my code
-
 /*
 [{
     id: 23771823,
@@ -17,6 +14,11 @@ console.log(getAvailableProducts());
 */
 
 const products = getAvailableProducts();
+const searchInput = document.querySelector('.search > input');
+const countrySelect = document.querySelector('.country > select');
+// const sortSelect = document.querySelector('.sort > select');
+
+console.log(countrySelect);
 
 /**
  * render product
@@ -71,11 +73,21 @@ function clearList(parent){
 renderProducts(products);
 
 //search name of product
-const searchInput = document.querySelector('.search > input');
-console.log(searchInput);
 searchInput.addEventListener('change', function(){
     result = products.filter((item) => {
-        return item.name.includes(searchInput.value)
+        return item.name.includes(searchInput.value);
     })
     renderProducts(result);
 })
+
+//Showing products that ships to country
+countrySelect.addEventListener('change', function(){
+    result = products.filter((item) => {
+        return item.shipsTo.includes(countrySelect.value);
+    })
+    renderProducts(result);
+    console.log(countrySelect.text);
+})
+
+//sort list
+
