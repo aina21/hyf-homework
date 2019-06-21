@@ -38,17 +38,18 @@ function renderProducts(list) {
     btnCart.innerHTML = "Add to cart";
     const li = document.createElement("li");
 
+    //add to cart
     btnCart.addEventListener("click", function() {
       const cart = document.querySelector("section.cart > ul");
       console.log(cart);
-      const liCart = document.createElement('li');
+      const liCart = document.createElement("li");
       liCart.innerHTML = `
             <li>
                 <div class="name">${product.name}</div>
                 <div class="price">${product.price}</div>
             </li>
             `;
-        cart.appendChild(liCart);
+      cart.appendChild(liCart);
     });
 
     li.appendChild(createList(product));
@@ -110,6 +111,12 @@ searchInput.addEventListener("change", function() {
 //     // console.log(countrySelect.text);
 // })
 
+/**
+ * this function convert string to lowercase
+ *
+ * @param {*} str
+ * @returns => string in lowercase
+ */
 function convertToLowerCase(str) {
   return str.trim().toLocaleLowerCase();
 }
@@ -146,4 +153,3 @@ sortSelect.addEventListener("change", function() {
   renderProducts(result);
 });
 
-//add to the cart

@@ -73,8 +73,7 @@ function splitIntoWords(word) {
 
 function searchMoviesWithTitle(word) {
   const result = movies.filter(movie => {
-    if (splitIntoWords(movie.title).includes(word.toLowerCase())) 
-        return movie;
+    if (splitIntoWords(movie.title).includes(word.toLowerCase())) return movie;
   });
   return result;
 }
@@ -84,7 +83,7 @@ const totalNumberOfMovies =
   searchMoviesWithTitle("Surfer").length +
   searchMoviesWithTitle("AlIeN").length +
   searchMoviesWithTitle("Benjamin").length;
-// console.log(totalNumberOfMovies);
+// console.log(totalNumberOfMovies); => 11
 
 //duplicate
 //find words in string that duplicated and return into array
@@ -148,12 +147,16 @@ const maxDuplicatedTitle = movies.reduce(
   }
 );
 
+// console.log(maxDuplicatedTitle); => {word: "Mad", value: 4}
+
 // Calculate the average rating of all the movies
 const averageOfAllMovies =
   movies.reduce((sum, item) => {
     sum += item.rating;
     return sum;
   }, 0) / movies.length;
+
+//   console.log(parseFloat(averageOfAllMovies).toFixed(2)); => 6.63
 
 //Count the total number of Good, Average and Bad movies
 const total = movies.reduce(
@@ -173,4 +176,4 @@ const total = movies.reduce(
     totalBad: 0
   }
 );
-console.log(total);
+// console.log(total); => {totalGood: 2602, totalAverage: 3837, totalBad: 88}
