@@ -67,19 +67,24 @@ const rateMoreThan6 = movies
  * @param {*} word => missing word
  * @returns => list of movies includes
  */
+function splitIntoWords(word) {
+  return word.toLowerCase().split(/[^a-z0-9+]+/gi);
+}
+
 function searchMoviesWithTitle(word) {
   const result = movies.filter(movie => {
-    if (movie.title.toLowerCase().includes(word.toLowerCase())) return movie;
+    if (splitIntoWords(movie.title).includes(word.toLowerCase())) 
+        return movie;
   });
   return result;
 }
 
 //Count the total number of movies containing any of following keywords: Surfer, Alien or Benjamin
 const totalNumberOfMovies =
-  searchMoviesWithTitle("Surfer ").length +
-  searchMoviesWithTitle("AlIeN ").length +
+  searchMoviesWithTitle("Surfer").length +
+  searchMoviesWithTitle("AlIeN").length +
   searchMoviesWithTitle("Benjamin").length;
-// console.log(searchMoviesWithTitle('Surfer'));
+// console.log(totalNumberOfMovies);
 
 //duplicate
 //find words in string that duplicated and return into array
@@ -144,24 +149,28 @@ const maxDuplicatedTitle = movies.reduce(
 );
 
 // Calculate the average rating of all the movies
-const averageOfAllMovies = movies.reduce((sum, item) => {
+const averageOfAllMovies =
+  movies.reduce((sum, item) => {
     sum += item.rating;
     return sum;
-},0) / movies.length;
+  }, 0) / movies.length;
 
 //Count the total number of Good, Average and Bad movies
-const total= movies.reduce((total, item) => {
-    if(item.tag === tag.GOOD){
-        total.totalGood = total.totalGood + 1;
-    } else if(item.tag === tag.AVERAGE){
-        total.totalAverage = total.totalAverage + 1;
+const total = movies.reduce(
+  (total, item) => {
+    if (item.tag === tag.GOOD) {
+      total.totalGood = total.totalGood + 1;
+    } else if (item.tag === tag.AVERAGE) {
+      total.totalAverage = total.totalAverage + 1;
     } else {
-        total.totalBad = total.totalBad + 1;
+      total.totalBad = total.totalBad + 1;
     }
     return total;
-},{
+  },
+  {
     totalGood: 0,
     totalAverage: 0,
     totalBad: 0
-})
+  }
+);
 console.log(total);
