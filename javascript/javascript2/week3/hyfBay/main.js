@@ -35,7 +35,6 @@ function renderProducts(list) {
     //add to cart
     btnCart.addEventListener("click", function() {
       const cart = document.querySelector("section.cart > ul");
-      console.log(cart);
       const liCart = document.createElement("li");
       liCart.innerHTML = `
             <li>
