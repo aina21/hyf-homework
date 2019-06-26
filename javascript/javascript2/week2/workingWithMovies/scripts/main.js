@@ -8,27 +8,40 @@
 //movies list
 const movies = getMovies();
 
-//movies with a short title
+/** 
+* 1.Create an array of movies containing the movies with a short title (you define what short means)
+*/
 const shortTitleMovies = movies.filter(movie => {
   if (movie.title.length < 5) {
     return movie;
   }
 });
 
-//long movie titles
+/** 
+ * 2.Create an array of movie titles with long movie titles
+ */ 
 const longTitleMovies = movies.filter(movie => {
   if (movie.title.length >= 50) {
     return movie;
   }
 });
 
-//number of movies made between 1980-1989 (including both the years)
-const numberOfMoviesBetween1980To1989 = movies.reduce((total, movie) => {
-  if (movie.year > 1980 && movie.year < 1989) {
+/**
+ * 3.Count the number of movies made between 1980-1989 (including both the years)
+ */
+const moviesFrom80s = movies.filter((total, movie) => {
+  if (movie.year >= 1980 && movie.year <= 1989) {
     total++;
   }
   return total;
 }, 0);
+console.log('3. Count of movies from 80s = ', moviesFrom80s.length);
+
+
+/**
+ * 4.Create a new array that has an extra key called tag. 
+ * The tag is based on the rating: Good (>= 7), Average (>= 4 and < 7), Bad (< 4)
+ */
 
 //tag array
 const tag = {
@@ -37,11 +50,7 @@ const tag = {
   BAD: "Bad"
 };
 
-/**
- * create tag for movies array
- */
-function createTag() {
-  movies.forEach(movie => {
+function createTag(movie) {
     if (movie.rating >= 7) {
       movie["tag"] = tag.GOOD;
     } else if (movie.rating < 7 && movie.rating >= 4) {
@@ -49,12 +58,15 @@ function createTag() {
     } else {
       movie["tag"] = tag.BAD;
     }
-  });
 }
 
-createTag();
+movies.forEach(createTag);
 
-//array to only the rating of the movies rated higher than 66
+/** 
+ * Using chaining, 
+ * first filter the movies array to only contain the movies rated higher than 6.
+ *  Now map the movies array to only the rating of the movies.
+*/
 const rateMoreThan6 = movies
   .filter(movie => {
     if (movie.rating > 6) return movie;
