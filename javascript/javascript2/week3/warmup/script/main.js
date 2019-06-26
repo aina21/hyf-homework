@@ -66,7 +66,9 @@ locationButton.addEventListener("click", () => {
     position
   ) {
     // console.log (position.coords.latitude, position.coords.longitude);
-    title.innerHTML = `${position.coords.latitude} and ${position.coords.longitude}`;
+    title.innerHTML = `${position.coords.latitude} and ${
+      position.coords.longitude
+    }`;
   });
 });
 
@@ -123,26 +125,23 @@ document.body.addEventListener("click", function() {
   }
 });
 
-/** 
- * Create a function called jokeCreator 
- * that has three parameters: shouldTellFunnyJoke - boolean, 
- * logFunnyJoke - function and logBadJoke - function. 
- * If you set tellFunnyJoke to true it should call the logFunnyJoke 
+/**
+ * Create a function called jokeCreator
+ * that has three parameters: shouldTellFunnyJoke - boolean,
+ * logFunnyJoke - function and logBadJoke - function.
+ * If you set tellFunnyJoke to true it should call the logFunnyJoke
  * function that should log out a funny joke. And vice versa.
-*/
+ */
 
-function jokeCreator(shouldTellFunnyJoke = false, logFunnyJoke, logBadJoke){
-
-  return shouldTellFunnyJoke ? logFunnyJoke: logBadJoke;
+function jokeCreator(shouldTellFunnyJoke = false, logFunnyJoke, logBadJoke) {
+  return shouldTellFunnyJoke ? logFunnyJoke : logBadJoke;
 }
 
-
-function logFunnyJoke(){
+function logFunnyJoke() {
   return "I tought a wolf to meditate, Now he's Aware Wolf";
 }
-function logBadJoke(){
+function logBadJoke() {
   return `what is a big and red and wiggles in the sky?
               A jellycopter`;
 }
 console.log(jokeCreator(false, logFunnyJoke(), logBadJoke()));
-;
