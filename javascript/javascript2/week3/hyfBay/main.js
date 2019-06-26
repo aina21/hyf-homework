@@ -190,53 +190,27 @@ searchInput.addEventListener("keyup", refreshProductsView);
 countrySelect.addEventListener("change", refreshProductsView);
 sortSelect.addEventListener("change", refreshProductsView);
 
-// //search name of product
-// searchInput.addEventListener("change", function() {
-//   result = products.filter(item => {
-//     return item.name.includes(searchInput.value);
-//   });
-//   renderProducts(result);
-// });
+/**
+ * send price to server and get response
+ *
+ * @param {array} arrayOfPrice
+ * @param {function} response
+ */
+function sendPricesToServer(arrayOfPrice, response) {
+  const server= {
+    prices: ()=>{
+      return arrayOfPrice;
+    }
+  }
+  console.log(response(), server.prices());
+}
 
-// /**
-//  * this function convert string to lowercase
-//  *
-//  * @param {string} str
-//  * @returns => string in lowercase
-//  */
-
-// function filterByName(){
-
-// }
-// countrySelect.addEventListener("change", function() {
-//   const selectedCountryName = convertToLowerCase(countrySelect.value);
-
-//   result = products.filter(item => {
-//     return item.shipsTo.some(shippingCountry => {
-//       return convertToLowerCase(shippingCountry) === selectedCountryName;
-//     });
-//   });
-
-//   renderProducts(result);
-// });
-
-//sort list
-// sortSelect.addEventListener("change", function() {
-
-//   let result = products;
-//   if (sortSelect.value === SORTOPTION.NAME) {
-//     result = products.sort((obj1, obj2) => {
-//       return obj1.name > obj2.name ? 1 : -1;
-//     });
-//   } else if (sortSelect.value === SORTOPTION.CHEAP) {
-//     result = products.sort((obj1, obj2) => {
-//       return obj1.price > obj2.price ? 1 : -1;
-//     });
-//   } else if (sortSelect.value === SORTOPTION.EXPENSIVE) {
-//     result = products.sort((obj1, obj2) => {
-//       return obj1.price < obj2.price ? 1 : -1;
-//     });
-//   }
-
-//   renderProducts(result);
-// });
+// send price to server from client
+sendPricesToServer(products.map((item) => {
+  return item.price
+})
+ ,
+  ()=> {
+    return "Hi Server :D, I sent price of products for you, please confirm me :)";
+  }
+);
