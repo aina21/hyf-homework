@@ -19,6 +19,7 @@ const searchInput = document.querySelector(".search > input");
 const countrySelect = document.querySelector(".country > select");
 const sortSelect = document.querySelector(".sort > select");
 const priceRange = document.querySelector(".price > input");
+const priceRangeLabel = document.querySelector(".price > label");
 
 /**
  * cart object:
@@ -42,14 +43,14 @@ function cart() {
     addToCart: product => {
       productsInCart.push(product);
     },
-    
-   totalPrice: ()=>{
-    const totalPrice= productsInCart.reduce((total, item) => {
-      total += item.price;
-    return total;
-    },0);
-    return totalPrice;
-   }
+
+    totalPrice: () => {
+      const totalPrice = productsInCart.reduce((total, item) => {
+        total += item.price;
+        return total;
+      }, 0);
+      return totalPrice;
+    }
   };
 }
 
@@ -57,7 +58,7 @@ function cart() {
  * convert to lower case
  *
  * @param {string} str
- * @returns
+ * @returns => lowecase string
  */
 function convertToLowerCase(str) {
   return str.trim().toLocaleLowerCase();
@@ -108,6 +109,20 @@ function filterByName(productsList, searchText) {
 }
 
 /**
+ *filtered by range
+ *
+ * @param {array} productsList => array of products
+ * @param {number} priceValue => max range of value
+ * @returns
+ */
+function filterByRangeOfPrice(productsList, priceValue) {
+  const result = productsList.filter(product => {
+    return product.price <= priceValue;
+  });
+  return result;
+}
+
+/**
  * sort array
  *
  * @param {array} productsList => list of products
@@ -122,6 +137,11 @@ function sortList(productsList, value) {
   };
 
   let result;
+
+  if (!value) {
+    return productsList;
+  }
+
   if (SORTOPTION[value].asc) {
     result = productsList.sort((obj1, obj2) => {
       return obj1[SORTOPTION[value].prop] > obj2[SORTOPTION[value].prop]
@@ -147,6 +167,8 @@ function refreshProductsView() {
   let filteredProducts = filterByCountryName(products, countrySelect.value);
   filteredProducts = filterByName(filteredProducts, searchInput.value);
   filteredProducts = sortList(filteredProducts, sortSelect.value);
+  filteredProducts = filterByRangeOfPrice(filteredProducts, priceRange.value);
+  console.log(filterByRangeOfPrice(filteredProducts, priceRange.value));
 
   renderProducts(filteredProducts);
 }
@@ -170,9 +192,6 @@ function renderProducts(list) {
       customerCart.addToCart(product);
       totalPrizeInput.innerHTML = customerCart.totalPrice();
 
-      console.log(customerCart.getProducts())
-      console.log(customerCart.totalPrice)
-
       const cart = document.querySelector("section.cart > ul");
       const liCart = document.createElement("li");
       clearList(cart);
@@ -180,8 +199,6 @@ function renderProducts(list) {
         liCart.appendChild(createList(element));
       });
       cart.appendChild(liCart);
-      
-
     });
 
     li.appendChild(createList(product));
@@ -224,12 +241,17 @@ function clearList(parent) {
   }
 }
 
+//first rendering product before filtered
 renderProducts(products);
 
 //events
 searchInput.addEventListener("keyup", refreshProductsView);
 countrySelect.addEventListener("change", refreshProductsView);
 sortSelect.addEventListener("change", refreshProductsView);
+priceRange.addEventListener("input", () => {
+  priceRangeLabel.innerHTML = priceRange.value + "dkk";
+  refreshProductsView();
+});
 
 /**
  * send price to server and get response

@@ -30,10 +30,10 @@
       <div class="sort">
         <label>Sort:</label>
         <select>
-          <option disabled selected>select sort option</option>
+          <option value="" disabled selected>select sort option</option>
           <option value="cheap">Cheap first</option>
           <option value="expensive">Expensive first</option>
-          <option value="name" selected>Name</option>
+          <option value="name">Name</option>
         </select>
       </div>
       <!-- end sort -->
@@ -42,7 +42,7 @@
         <div class="country">
           <label>Ships to</label>
           <select>
-            <option disabled selected>select country</option>
+            <option value="" disabled selected>select country</option>
             <option value="denmark">Denmark</option>
             <option value="sweden">Sweden</option>
             <option value="norway">Norway</option>
@@ -54,8 +54,15 @@
         <!-- end countries list -->
         <!-- price -->
         <div class="price">
-          <input type="range" id="start" name="volume" min="0" max="11" />
-          <label for="volume">Lower Price:</label>
+          <input
+            type="range"
+            id="start"
+            name="volume"
+            min="100"
+            max="10000"
+            value="10000"
+          />
+          <label for="volume"> choise your max price</label>
         </div>
         <!-- end price -->
       </div>
