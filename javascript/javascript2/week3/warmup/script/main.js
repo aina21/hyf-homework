@@ -61,17 +61,47 @@ showPlanet("earth");
  */
 
 const locationButton = document.querySelector(".btn_location");
+
 locationButton.addEventListener("click", () => {
-  const currentLocation = navigator.geolocation.getCurrentPosition(function(
-    position
-  ) {
-    // console.log (position.coords.latitude, position.coords.longitude);
-    title.innerHTML = `${position.coords.latitude} and ${
-      position.coords.longitude
-    }`;
+  navigator.geolocation.getCurrentPosition(function(position) {
+    console.log (position.coords.latitude, position.coords.longitude);
+    // title.innerHTML =  `${position.coords.latitude} and ${position.coords.longitude}`;
+    const currentLocation = {
+      longitude: position.coords.longitude,
+      latitude: position.coords.latitude
+    };
+
+    // console.log(currentLocation);
+    renderLocationOnGoogleMap(
+      currentLocation.latitude,
+      currentLocation.longitude
+    );
   });
 });
 
+/**
+ * render map 
+ *
+ * @param {number} lat => latitude
+ * @param {number} lng => longitude
+ */
+function renderLocationOnGoogleMap(lat, lng) {
+  const mapDiv = document.querySelector("#map");
+  const map = new google.maps.Map(mapDiv, {
+    center: { lat, lng },
+    zoom: 15
+  });
+
+  console.log(map);
+}
+
+// var map;
+// function initMap() {
+//   map = new google.maps.Map(document.getElementById("map"), {
+//     center: { lat: currentLocation.latitude, lng: currentLocation.longitude },
+//     zoom: 12
+//   });
+// }
 /**
  * 6. Now show that location on a map using fx the Google maps api
  */
@@ -145,3 +175,5 @@ function logBadJoke() {
               A jellycopter`;
 }
 console.log(jokeCreator(false, logFunnyJoke(), logBadJoke()));
+
+

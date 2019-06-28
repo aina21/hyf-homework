@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- my css -->
+    <link rel="stylesheet" href="assets/styles/style.css" />
+
+    <title>Fastest Presser</title>
+  </head>
+
+  <body>
+    <!-- header -->
+    <header>
+      <img
+        class="header-image center"
+        src="assets/images/Screenshot 2019-06-26 at 23.36.14.png"
+        alt="title"
+      />
+    </header>
+    <!-- header end -->
+
+    <!-- main  -->
+    <main>
+      <!-- controller -->
+      <!-- set time -->
+      <section class="form-group controller center">
+        <label for="controller__setTime">Set timer</label>
+        <select
+          class="form-control controller-setTime"
+          name="setTime"
+          id="controller__setTime"
+        >
+          <option value="10">10 seconds</option>
+          <option value="20">20 seconds</option>
+          <option value="30">30 seconds</option>
+        </select>
+        <!-- end set time -->
+        <!-- start button -->
+        <button type="button" class="btn btn-primary controller-start">
+          Start Game
+        </button>
+        <!-- end button -->
+        <div class= "display">
+            <h3>Press Start!</h3>
+            <h5></h5>
+        </div>
+      </section>
+      <!-- controller end -->
+      <!-- gameboard -->
+      <section class="gameboard center">
+          
+        <!-- firstplayer -->
+        <div class="playerOne player">
+          <canvas id="canvasPlayerOne"></canvas>
+          <p>Press S</p>
+          <h4></h4>
+        </div>
+        <!-- second player  -->
+        <div class="playerTwo player">
+          <canvas id="canvasPlayerTwo"></canvas>
+          <p>Press L</p>
+          <h4></h4>
+        </div>
+      </section>
+      <!-- end gameboard -->
+    </main>
+    <!-- main end -->
+
+  <!-- canvas script -->
+  <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.13/dist/index.min.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- my script -->
+<script src="script/main.js"></script>  </body>
+</html>

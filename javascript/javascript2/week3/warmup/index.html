@@ -16,6 +16,8 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <!-- my css -->
+    <link type="text/css" href="./assets/style.css" rel="stylesheet" />
   </head>
   <body>
     <div class="container">
@@ -28,18 +30,19 @@
       </button>
       <!-- delay button end -->
 
-      <!--Google map-->
       <!-- <div id="map" style="height: 100%;"></div> -->
-      <!--Google Maps end -->
+
       <!-- location button -->
       <button type="button" class="btn btn-primary btn_location">
         Log location</button
       ><!-- location button end -->
     </div>
-    <!-- google api -->
+    <!--Google map-->
+    <div id="map"></div>
+    <!--Google Maps end -->
 
-    <!-- Optional JavaScript -->
-    <script src="script/main.js"></script>
+    <!-- google api -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk-jmrsI2FtMNdW7Cr2SQZ_CmFpNn3Xjg"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -56,5 +59,7 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <!-- my JavaScript -->
+    <script src="script/main.js"></script>
   </body>
 </html>

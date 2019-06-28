@@ -196,21 +196,11 @@ sortSelect.addEventListener("change", refreshProductsView);
  * @param {array} arrayOfPrice
  * @param {function} response
  */
-function sendPricesToServer(arrayOfPrice, response) {
-  const server= {
-    prices: ()=>{
-      return arrayOfPrice;
-    }
-  }
-  console.log(response(), server.prices());
-}
-
-// send price to server from client
 sendPricesToServer(products.map((item) => {
   return item.price
 })
  ,
-  ()=> {
-    return "Hi Server :D, I sent price of products for you, please confirm me :)";
-  }
+(str)=>{
+  console.log(str);
+}
 );
