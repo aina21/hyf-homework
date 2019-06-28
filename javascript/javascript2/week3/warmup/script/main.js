@@ -64,7 +64,7 @@ const locationButton = document.querySelector(".btn_location");
 
 locationButton.addEventListener("click", () => {
   navigator.geolocation.getCurrentPosition(function(position) {
-    console.log (position.coords.latitude, position.coords.longitude);
+    console.log(position.coords.latitude, position.coords.longitude);
     // title.innerHTML =  `${position.coords.latitude} and ${position.coords.longitude}`;
     const currentLocation = {
       longitude: position.coords.longitude,
@@ -80,7 +80,7 @@ locationButton.addEventListener("click", () => {
 });
 
 /**
- * render map 
+ * render map
  *
  * @param {number} lat => latitude
  * @param {number} lng => longitude
@@ -175,5 +175,3 @@ function logBadJoke() {
               A jellycopter`;
 }
 console.log(jokeCreator(false, logFunnyJoke(), logBadJoke()));
-
-

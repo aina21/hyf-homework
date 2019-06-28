@@ -124,5 +124,13 @@ section.cart ul > li {
 }
 
 section.cart ul > li:nth-child(odd) {
+  flex-direction: column;
   background-color: #f0f0f0;
+}
+
+section.cart > ul > li > ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 12px 12px 12px;
 }

@@ -57,7 +57,7 @@ function createGame(playerS, playerL) {
 /**
  *
  *
- * @param {*} player
+ * @param {string} player
  */
 function canvasWinner(player) {
   var confettiSettings = { target: player };
@@ -74,16 +74,12 @@ const displayTimer = document.querySelector(".display > h5");
 
 let intervalID;
 
-// /**
-// * for confitti
-// */
-
 function resetGame() {
   const game = createGame("PlayerOne", "PlayerTwo");
   const canvasElements = document
     .querySelectorAll("canvas")
     .forEach(el => (el.style.display = "none"));
-    
+
   playerOneLog.innerHTML = 0;
   playerTwoLog.innerHTML = 0;
   displayTimer.innerHTML = "";
@@ -121,6 +117,11 @@ startButton.addEventListener("click", () => {
 
   startButton.addEventListener("keydown", counterScore);
 
+  /**
+   * counter score when press 
+   *
+   * @param {object} event
+   */
   function counterScore(event) {
     if (event.which == 83) {
       //press S
@@ -139,9 +140,8 @@ startButton.addEventListener("click", () => {
       displayMessage.innerHTML = "Finished";
 
       const winnerId = "canvas" + newGame.getWinner();
-      const canvasLeft = document.getElementById(winnerId);
-      canvasLeft.style.display = "flex";
-      // const winnerId = "canvas" + newGame.getWinner()
+      const canvasWinnerTag = document.getElementById(winnerId);
+      canvasWinnerTag.style.display = "flex";
       canvasWinner(winnerId);
       callback();
     } else {

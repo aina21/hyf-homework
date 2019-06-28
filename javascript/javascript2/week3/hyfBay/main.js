@@ -14,78 +14,44 @@ console.log(getAvailableProducts());
 */
 
 const products = getAvailableProducts();
+const customerCart = cart();
 const searchInput = document.querySelector(".search > input");
 const countrySelect = document.querySelector(".country > select");
 const sortSelect = document.querySelector(".sort > select");
+const priceRange = document.querySelector(".price > input");
 
 /**
- * render product
+ * cart object:
+ * getProducts()=> list of product in cart
+ * addToCart()=> adding product to cart
+ * totalPrice=> total price
  *
- * @param {Array} list => product list
+ * @returns => cart object
  */
-function renderProducts(list) {
-  const ul = document.querySelector("section.products > ul");
-
-  clearList(ul);
-  for (const product of list) {
-    const btnCart = document.createElement("button");
-    btnCart.innerHTML = "Add to cart";
-    const li = document.createElement("li");
-
-    //add to cart
-    btnCart.addEventListener("click", function() {
-      const cart = document.querySelector("section.cart > ul");
-      const liCart = document.createElement("li");
-      liCart.innerHTML = `
-            <li>
-                <div class="name">${product.name}</div>
-                <div class="price">${product.price}</div>
-            </li>
-            `;
-      cart.appendChild(liCart);
-    });
-
-    li.appendChild(createList(product));
-    li.appendChild(btnCart);
-    ul.appendChild(li);
-  }
+function cart() {
+  const productsInCart = [];
+  return {
+    getProducts: () => {
+      return productsInCart.map(item => {
+        return {
+          name: item.name,
+          price: item.price
+        };
+      });
+    },
+    addToCart: product => {
+      productsInCart.push(product);
+    },
+    
+   totalPrice: ()=>{
+    const totalPrice= productsInCart.reduce((total, item) => {
+      total += item.price;
+    return total;
+    },0);
+    return totalPrice;
+   }
+  };
 }
-
-/**
- * create nested list
- *
- * @param {object} parent => parent node
- * @returns => ul
- */
-function createList(parent) {
-  const ul = document.createElement("ul");
-  const keys = Object.keys(parent);
-
-  for (const key of keys) {
-    const li = document.createElement("li");
-    if (Array.isArray(parent[key])) {
-      li.appendChild(createList(parent[key]));
-    } else {
-      li.innerHTML = parent[key];
-      li.setAttribute("class", key);
-    }
-    ul.appendChild(li);
-  }
-  return ul;
-}
-
-/**
- * clear nodes for refrshing list
- *
- * @param {object} parent => parent node
- */
-function clearList(parent) {
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
-  }
-}
-
-renderProducts(products);
 
 /**
  * convert to lower case
@@ -185,6 +151,81 @@ function refreshProductsView() {
   renderProducts(filteredProducts);
 }
 
+/**
+ * render product
+ *
+ * @param {Array} list => product list
+ */
+function renderProducts(list) {
+  const totalPrizeInput = document.querySelector(".total > p > span");
+  const ul = document.querySelector("section.products > ul");
+  clearList(ul);
+  for (const product of list) {
+    const btnCart = document.createElement("button");
+    btnCart.innerHTML = "Add to cart";
+    const li = document.createElement("li");
+
+    //add to cart
+    btnCart.addEventListener("click", function() {
+      customerCart.addToCart(product);
+      totalPrizeInput.innerHTML = customerCart.totalPrice();
+
+      console.log(customerCart.getProducts())
+      console.log(customerCart.totalPrice)
+
+      const cart = document.querySelector("section.cart > ul");
+      const liCart = document.createElement("li");
+      clearList(cart);
+      customerCart.getProducts().forEach(element => {
+        liCart.appendChild(createList(element));
+      });
+      cart.appendChild(liCart);
+      
+
+    });
+
+    li.appendChild(createList(product));
+    li.appendChild(btnCart);
+    ul.appendChild(li);
+  }
+}
+
+/**
+ * create nested list
+ *
+ * @param {object} parent => parent node
+ * @returns => ul
+ */
+function createList(parent) {
+  const ul = document.createElement("ul");
+  const keys = Object.keys(parent);
+
+  for (const key of keys) {
+    const li = document.createElement("li");
+    if (Array.isArray(parent[key])) {
+      li.appendChild(createList(parent[key]));
+    } else {
+      li.innerHTML = parent[key];
+      li.setAttribute("class", key);
+    }
+    ul.appendChild(li);
+  }
+  return ul;
+}
+
+/**
+ * clear nodes for refrshing list
+ *
+ * @param {object} parent => parent node
+ */
+function clearList(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+renderProducts(products);
+
 //events
 searchInput.addEventListener("keyup", refreshProductsView);
 countrySelect.addEventListener("change", refreshProductsView);
@@ -196,11 +237,11 @@ sortSelect.addEventListener("change", refreshProductsView);
  * @param {array} arrayOfPrice
  * @param {function} response
  */
-sendPricesToServer(products.map((item) => {
-  return item.price
-})
- ,
-(str)=>{
-  console.log(str);
-}
+sendPricesToServer(
+  products.map(item => {
+    return item.price;
+  }),
+  str => {
+    console.log(str);
+  }
 );
