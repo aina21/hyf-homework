@@ -1,0 +1,45 @@
+/* --------------------------------------------------------
+Style Sheet for Hack Your Future, Javascript3, homework Week1  
+----------------------------------------------------------*/
+/* ----------------------- */
+/* GENERAL STYLES */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+  height: 400px;
+  width: 100%;
+}
+button{
+    margin-top: .5rem;
+}
+/* ----------------------- */
+/* FORM STYLES */
+.weatherInfo{
+    margin-top: 2rem;
+}
+#table {
+  border-collapse: collapse;
+}
+td {
+  border: solid 1px black;
+}
+.table {
+  background: None;
+  border: solid 1px black;
+}
+.table ul {
+  float: left;
+  margin: 0px;
+  padding: 0px;
+}
+.table ul li {
+  list-style: none;
+  padding: 4px 9px;
+}
+.table .table_title {
+  display: none;
+}

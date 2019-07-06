@@ -83,7 +83,9 @@ function resetGame() {
   playerOneLog.innerHTML = 0;
   playerTwoLog.innerHTML = 0;
   displayTimer.innerHTML = "";
-  startButton.removeEventListener("keydown", () => {});
+  // startButton.removeEventListener("keydown", () => {
+  //   event.stopPropagation();
+  // });
   return game;
 }
 

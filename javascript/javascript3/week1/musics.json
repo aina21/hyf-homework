@@ -1,0 +1,21 @@
+[{
+    "name" :  "Stairway to Heaven",
+    "artist": "Led Zeppelin",
+    "released": "1971-11-08",
+    "songwriter": ["Jimmy Page", "Robert Plant"]
+
+},
+{
+    "name" :  "bohemian rhapsody",
+    "artist": "Queen",
+    "released": "1971-11-08",
+    "songwriter": ["Freddie Mercury"]
+},
+{
+    "name" :  "bohemian rhapsody",
+    "artist": "Queen",
+    "album": "A Night at the Opera",
+    "released": "1975",
+    "songwriter": ["Freddie Mercury"]
+}
+]
