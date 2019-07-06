@@ -139,7 +139,7 @@ btnCurrentLocation.addEventListener("click", () => {
       longitude: position.coords.longitude,
       latitude: position.coords.latitude
     };
-    // renderLocationOnGoogleMap(currentLocation.latitude, currentLocation.longitude);
+
     WeatherInfoCurrentLocation(
       currentLocation.latitude,
       currentLocation.longitude

@@ -31,14 +31,14 @@ const constFunc = () => {
   console.log("Hi I'm a const function");
 };
 
-NormalFunc = () => {
+normalFunc = () => {
   console.log("Hi I'm a normal function");
 };
 // NormalFunc = constFunc;
 // constFunc = NormalFunc => error
 
 constFunc();
-NormalFunc();
+normalFunc();
 
 /**
  * Create an object that has a key whose value is a function.
