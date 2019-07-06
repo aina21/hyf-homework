@@ -120,16 +120,16 @@ startButton.addEventListener("click", () => {
   startButton.addEventListener("keydown", counterScore);
 
   /**
-   * counter score when press 
+   * counter score when press
    *
    * @param {object} event
    */
   function counterScore(event) {
-    if (event.which == 83) {
+    if (event.which === 83) {
       //press S
       playerOneLog.innerHTML = `${newGame.one.getValue()}`;
       newGame.one.increase();
-    } else if (event.which == 76) {
+    } else if (event.which === 76) {
       //press L
       playerTwoLog.innerHTML = `${newGame.two.getValue()}`;
       newGame.two.increase();
