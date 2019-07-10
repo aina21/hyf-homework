@@ -48,7 +48,7 @@ function createGame(playerS, playerL) {
       } else if (this.one.getValue() < this.two.getValue()) {
         return playerL;
       } else {
-        return "It's a tie";
+        return null;
       }
     }
   };
@@ -83,9 +83,7 @@ function resetGame() {
   playerOneLog.innerHTML = 0;
   playerTwoLog.innerHTML = 0;
   displayTimer.innerHTML = "";
-  // startButton.removeEventListener("keydown", () => {
-  //   event.stopPropagation();
-  // });
+
   return game;
 }
 
@@ -125,11 +123,11 @@ startButton.addEventListener("click", () => {
    * @param {object} event
    */
   function counterScore(event) {
-    if (event.which === 83) {
+    if (event.which == 83) {
       //press S
       playerOneLog.innerHTML = `${newGame.one.getValue()}`;
       newGame.one.increase();
-    } else if (event.which === 76) {
+    } else if (event.which == 76) {
       //press L
       playerTwoLog.innerHTML = `${newGame.two.getValue()}`;
       newGame.two.increase();
@@ -140,11 +138,14 @@ startButton.addEventListener("click", () => {
     let timeleft = (endTime - new Date()) / 1000;
     if (timeleft < 0) {
       displayMessage.innerHTML = "Finished";
-
-      const winnerId = "canvas" + newGame.getWinner();
-      const canvasWinnerTag = document.getElementById(winnerId);
-      canvasWinnerTag.style.display = "flex";
-      canvasWinner(winnerId);
+      if (newGame.getWinner() === null) {
+        alert("It was a tie, Try again!")
+      } else {
+        const winnerId = "canvas" + newGame.getWinner();
+        const canvasWinnerTag = document.getElementById(winnerId);
+        canvasWinnerTag.style.display = "flex";
+        canvasWinner(winnerId);
+      }
       callback();
     } else {
       displayMessage.innerHTML = timeleft + " seconds remaining";
