@@ -1,13 +1,15 @@
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #F9FBFD;
+  background-color: #f9fbfd;
 }
 
 * {
   box-sizing: border-box;
 }
 
-body, h1, h2 {
+body,
+h1,
+h2 {
   margin: 0;
   overflow: hidden;
 }
@@ -59,54 +61,72 @@ ul.targets li:nth-child(3) {
   left: 400px;
 }
 span {
-    display: none;
+  display: none;
 }
 
 @keyframes bounceIn {
-    from,
-    20%,
-    40%,
-    60%,
-    80%,
-    to {
-      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-  
-    0% {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale3d(0.3, 0.3, 0.3);
-    }
-  
-    20% {
-      transform: translate(-50%, -50%) scale3d(1.1, 1.1, 1.1);
-    }
-  
-    40% {
-      transform: translate(-50%, -50%) scale3d(0.9, 0.9, 0.9);
-    }
-  
-    60% {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale3d(1.03, 1.03, 1.03);
-    }
-  
-    80% {
-      transform: translate(-50%, -50%) scale3d(0.97, 0.97, 0.97);
-    }
-  
-    to {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale3d(1, 1, 1);
-    }
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-  
+
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: translate(-50%, -50%) scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: translate(-50%, -50%) scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: translate(-50%, -50%) scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale3d(1, 1, 1);
+  }
+}
+
 span.shown {
-    display: block;
-    animation-duration: 0.75s;
-    animation-name: bounceIn;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 5rem;
+  display: block;
+  animation-duration: 0.75s;
+  animation-name: bounceIn;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+}
+
+.actions-list {
+  position: absolute;
+  display: flex;
+  top: 70%;
+  width: 50%;
+  transform: translate(14%, 70%);
+}
+
+button{
+  background-color: #03A9F4;
+  margin-right: 3px;
+  font-size: 16px;
+  font-family: cursive;
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgb
 }
