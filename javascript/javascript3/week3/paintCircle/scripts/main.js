@@ -21,7 +21,7 @@ class Circle {
   /**
    * draw circle in canvas
    *
-   * @param {canvas} c => canvas
+   * @param {DOMelement} c => canvas
    * @memberof Circle
    */
   draw(c) {
@@ -44,13 +44,45 @@ class Circle {
 }
 
 /**
+ * create random
+ *
+ * @param {number} min
+ * @param {number} max
+ * @returns => random number
+ */
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getRandomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+function randomCircle() {
+  const r = getRandomInt(5, 50) + 1;
+  const y = getRandomInt(r, 80) + 1;
+  const x = getRandomInt(r, 100) + 1;
+  const color = getRandomColor();
+
+  console.log("x =", x, "y=", y, "r=", r);
+  return new Circle(x, y, r, 0, 2 * Math.PI, color);
+}
+
+/**
  * display circles in pages
  *
  */
 function display() {
   const circleCanvas = document.querySelector("#circle");
   console.log(circleCanvas);
-  const circle = new Circle(50, 50, 20, 0, 2 * Math.PI, "#3AB8FF");
+  const circle = randomCircle();
   circle.draw(circleCanvas);
 }
 
