@@ -56,6 +56,11 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+/**
+ * create random color
+ *
+ * @returns => random color
+ */
 function getRandomColor() {
   const letters = "0123456789ABCDEF";
   let color = "#";
@@ -65,10 +70,15 @@ function getRandomColor() {
   return color;
 }
 
+/**
+ * create random circle
+ *
+ * @returns => circle
+ */
 function randomCircle() {
-  const r = getRandomInt(5, 50) + 1;
-  const y = getRandomInt(r, 80) + 1;
-  const x = getRandomInt(r, 100) + 1;
+  const r = getRandomInt(5, 100) + 1;
+  const y = getRandomInt(r, 500) + 1;
+  const x = getRandomInt(r, 500) + 1;
   const color = getRandomColor();
 
   console.log("x =", x, "y=", y, "r=", r);
@@ -76,14 +86,28 @@ function randomCircle() {
 }
 
 /**
+ * create auto random circle inside of canvas
+ *
+ * @param {number} timer
+ * @param {} c
+ */
+function autoDrawCircle(timer, c) {
+  setInterval(() => {
+    const circle = randomCircle();
+    circle.draw(c);
+  }, timer);
+}
+/**
  * display circles in pages
  *
  */
 function display() {
   const circleCanvas = document.querySelector("#circle");
-  console.log(circleCanvas);
-  const circle = randomCircle();
-  circle.draw(circleCanvas);
+
+  //full screen canvas
+  circleCanvas.width = window.innerWidth;
+  circleCanvas.height = window.innerHeight;
+  autoDrawCircle(500, circleCanvas);
 }
 
 display();
