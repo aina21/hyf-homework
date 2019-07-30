@@ -75,28 +75,13 @@ function getRandomColor() {
  *
  * @returns => circle
  */
-function randomCircle() {
+function randomCircle(x, y) {
   const r = getRandomInt(5, 100) + 1;
-  const y = getRandomInt(r, 500) + 1;
-  const x = getRandomInt(r, 500) + 1;
   const color = getRandomColor();
 
-  console.log("x =", x, "y=", y, "r=", r);
   return new Circle(x, y, r, 0, 2 * Math.PI, color);
 }
 
-/**
- * create auto random circle inside of canvas
- *
- * @param {number} timer
- * @param {} c
- */
-function autoDrawCircle(timer, c) {
-  setInterval(() => {
-    const circle = randomCircle();
-    circle.draw(c);
-  }, timer);
-}
 /**
  * display circles in pages
  *
@@ -107,7 +92,13 @@ function display() {
   //full screen canvas
   circleCanvas.width = window.innerWidth;
   circleCanvas.height = window.innerHeight;
-  autoDrawCircle(500, circleCanvas);
+
+  circleCanvas.addEventListener("mousemove", e => {
+    
+    console.log(e.clientX, e.clientY);
+    randomCircle(e.clientX, e.clientY).draw(circleCanvas);
+
+  });
 }
 
 display();
