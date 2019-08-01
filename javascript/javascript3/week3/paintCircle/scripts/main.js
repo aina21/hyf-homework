@@ -97,7 +97,6 @@ function display() {
     
     console.log(e.clientX, e.clientY);
     randomCircle(e.clientX, e.clientY).draw(circleCanvas);
-
   });
 }
 
