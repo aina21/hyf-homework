@@ -21,8 +21,7 @@ function fetchApi(userName) {
  *
  */
 function combinedData() {
-  Promise.all(usernames.map(user => fetchApi(user)))
-  .then(repositoryForAll => {
+  Promise.all(usernames.map(user => fetchApi(user))).then(repositoryForAll => {
     repositoryForAll.forEach(repositoryForUser => {
       renderForUser(repositoryForUser);
     });
@@ -36,20 +35,18 @@ function combinedData() {
  */
 function renderForUser(repositories) {
   console.log(repositories);
-  const listOfAllUsers =  document.querySelector("ul.list");
+  const listOfAllUsers = document.querySelector("ul.list");
   const user = repositories[0].owner.login;
   const userElem = createList(listOfAllUsers, `${user}'s repositories`);
-   
+
   listOfAllUsers.appendChild(userElem);
   const listOfRepositories = document.createElement("ul");
   repositories.forEach(repository => {
-    const repositoryName = `${repository.name}: ${repository.html_url}`
-    createList(listOfRepositories, repositoryName)
+    const repositoryName = `${repository.name}: ${repository.html_url}`;
+    createList(listOfRepositories, repositoryName);
   });
   userElem.appendChild(listOfRepositories);
 }
-
-
 
 /**
  *
