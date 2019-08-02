@@ -5,6 +5,7 @@ class Product {
   }
 }
 
+
 class ShoppingCart {
   constructor(products) {
     this.products = products;
@@ -31,6 +32,7 @@ class ShoppingCart {
     // Implement functionality here
     const removeIndex = this.products.indexOf(product);
     this.products.splice(removeIndex, 1);
+    this.renderProduct();
   }
 
   /**
@@ -42,13 +44,14 @@ class ShoppingCart {
    */
   searchProduct(productName) {
     // Implement functionality here
-    return this.products.filter((product) => {
-      return product.name === productName.name;
-    })
+    productName = productName.trim().toLocaleLowerCase();
+    return this.products.filter(product => {
+      return product.name === productName;
+    });
   }
 
   /**
-   * calculate total price 
+   * calculate total price
    *
    * @returns => total number
    * @memberof ShoppingCart
@@ -66,8 +69,7 @@ class ShoppingCart {
    *
    * @memberof ShoppingCart
    */
-  renderProducts() {
-    // Implement functionality here
+  renderProduct() {
     /**
      *
      *
@@ -79,13 +81,33 @@ class ShoppingCart {
       const list = document.createElement("li");
       list.innerHTML = data;
       parent.appendChild(list);
+
       return list;
     }
 
+    /**
+     *
+     *
+     * @param {DOM-element} parent
+     * @param {boolean} [isAddedToCart=false]
+     */
+    function addActionButton(parent) {
+      const activeButton = document.createElement("button");
+      activeButton.innerHTML = "delete";
+      parent.appendChild(activeButton);
+      return activeButton;
+    }
+
     const listOfProducts = document.querySelector("ul.listOfProducts");
+    listOfProducts.innerHTML = "";
     this.products.forEach(product => {
-      listOfProducts.appendChild(createList(listOfProducts, product.name));
+      const productElem = createList(listOfProducts, product.name);
+      listOfProducts.appendChild(productElem);
+      addActionButton(productElem).addEventListener("click", function() {
+        shoppingCart.removeProduct(product);
+      });
     });
+    createList(listOfProducts, `Total price: ${this.getTotal()}`);
   }
 
   /**
@@ -95,26 +117,35 @@ class ShoppingCart {
    * @returns => api value
    * @memberof ShoppingCart
    */
-  getUser(id) {
+  getUser(userId) {
     // Implement functionality here
-    return fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-    .then(response => response.json())
+    return fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+      .then(response => response.json())
+      .then(data => {
+        this.username = data.username;
+        const userInfoElem = document.querySelector("div.userInfo");
+        userInfoElem.innerHTML = `Hi ${this.username}`;
+        this.renderProduct();
+      });
   }
 }
 
+const productList = [
+  new Product("flat-screen", 5000),
+  new Product("mobile", 10000),
+  new Product("computer", 15000),
+  new Product("smart watch", 4000)
+];
 
+function render() {
+  const shoppingCart = new ShoppingCart([]);
+  shoppingCart.addProduct(productList[0]);
+  shoppingCart.addProduct(productList[3]);
+  shoppingCart.addProduct(productList[2]);
 
-const flatscreen = new Product("flat-screen", 5000);
-const flatscreen2 = new Product("flat-screen2", 5000);
+  console.log(shoppingCart.getTotal());
+  // shoppingCart.renderProduct();
+  shoppingCart.getUser(9);
+}
 
-const shoppingCart = new ShoppingCart([]);
-shoppingCart.addProduct(flatscreen);
-shoppingCart.addProduct(flatscreen);
-shoppingCart.addProduct(flatscreen);
-shoppingCart.addProduct(flatscreen2);
-
-
-console.log(shoppingCart.getTotal());
-
-shoppingCart.renderProducts();
-console.log(shoppingCart.getUser(4));
+render();
