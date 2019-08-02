@@ -1,10 +1,26 @@
 class Product {
-  constructor(name, price) {
+  constructor(name, price, currentCurrency = "DKK") {
     this.name = name;
     this.price = price;
+    this.currentCurrency = currentCurrency;
+  }
+
+  /**
+   * exchange current currency and price
+   *
+   * @param {string} currency
+   * @memberof Product
+   */
+  convertToCurrency(currency) {
+    const apiKey = "463d14ec1b0cc25535af";
+    fetch(`https://free.currconv.com/api/v7/convert?q=${this.currentCurrency}_${currency}&compact=ultra&apiKey=${apiKey}`)
+      .then(response => response.json())
+      .then(data => {
+        this.price = this.price * data[`${this.currentCurrency}_${currency}`];
+        this.currentCurrency = currency;
+      });
   }
 }
-
 
 class ShoppingCart {
   constructor(products) {
@@ -143,7 +159,6 @@ function render() {
   shoppingCart.addProduct(productList[3]);
   shoppingCart.addProduct(productList[2]);
 
-  console.log(shoppingCart.getTotal());
   // shoppingCart.renderProduct();
   shoppingCart.getUser(9);
 }
