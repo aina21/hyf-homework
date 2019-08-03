@@ -5,6 +5,9 @@ class Product {
     this.currentCurrency = currentCurrency;
   }
 
+  changePrice(price) {
+    this.price = price;
+  }
   /**
    * exchange current currency and price
    *
@@ -12,13 +15,21 @@ class Product {
    * @memberof Product
    */
   convertToCurrency(currency) {
-    const apiKey = "463d14ec1b0cc25535af";
-    fetch(`https://free.currconv.com/api/v7/convert?q=${this.currentCurrency}_${currency}&compact=ultra&apiKey=${apiKey}`)
+    const apiKey = "62eba05a1eaf281ad316";
+    return fetch(
+      `https://free.currconv.com/api/v7/convert?q=${
+        this.currentCurrency
+      }_${currency}&compact=ultra&apiKey=${apiKey}`
+    )
       .then(response => response.json())
       .then(data => {
-        this.price = this.price * data[`${this.currentCurrency}_${currency}`];
         this.currentCurrency = currency;
-      });
+        const newPrice =
+          this.price * data[`${this.currentCurrency}_${currency}`];
+        this.changePrice(newPrice);
+      })
+
+      .catch(error => console.error(error));
   }
 }
 
@@ -111,16 +122,23 @@ class ShoppingCart {
       const activeButton = document.createElement("button");
       activeButton.innerHTML = "delete";
       parent.appendChild(activeButton);
+
       return activeButton;
     }
 
     const listOfProducts = document.querySelector("ul.listOfProducts");
     listOfProducts.innerHTML = "";
+
     this.products.forEach(product => {
       const productElem = createList(listOfProducts, product.name);
+      console.log(typeof product.price);
+      createList(productElem, product.price);
+      const that = this;
+
       listOfProducts.appendChild(productElem);
+
       addActionButton(productElem).addEventListener("click", function() {
-        shoppingCart.removeProduct(product);
+        that.removeProduct(product);
       });
     });
     createList(listOfProducts, `Total price: ${this.getTotal()}`);
@@ -140,9 +158,10 @@ class ShoppingCart {
       .then(data => {
         this.username = data.username;
         const userInfoElem = document.querySelector("div.userInfo");
-        userInfoElem.innerHTML = `Hi ${this.username}`;
+        userInfoElem.innerHTML = `<h1>${this.username}</h1>`;
         this.renderProduct();
-      });
+      })
+      .catch(error => console.error(error));
   }
 }
 
@@ -153,14 +172,48 @@ const productList = [
   new Product("smart watch", 4000)
 ];
 
-function render() {
-  const shoppingCart = new ShoppingCart([]);
-  shoppingCart.addProduct(productList[0]);
-  shoppingCart.addProduct(productList[3]);
-  shoppingCart.addProduct(productList[2]);
+const shoppingCart = new ShoppingCart([]);
+shoppingCart.addProduct(productList[0]);
+shoppingCart.addProduct(productList[3]);
+shoppingCart.addProduct(productList[2]);
 
-  // shoppingCart.renderProduct();
-  shoppingCart.getUser(9);
+const searchInput = document.querySelector("#search-input");
+const currencySelect = document.querySelector("#currency");
+const addButton = document.querySelector(".addBtn");
+
+function render() {
+  const productDetailList = document.querySelector("#products");
+
+  productList.forEach(product => {
+    const productOptionElem = document.createElement("option");
+    productOptionElem.innerHTML = product.name;
+    productDetailList.appendChild(productOptionElem);
+  });
+
+  shoppingCart.getUser(4);
 }
+
+//change currency
+currencySelect.addEventListener("change", () => {
+  // shoppingCart.products.forEach(product => {
+  //   product.convertToCurrency(currencySelect.value);
+  // });
+  Promise.all(shoppingCart.products.map(product => {
+    return product.convertToCurrency(currencySelect.value);
+  })).then(data => {
+    shoppingCart.renderProduct();
+  });
+});
+
+//add new product
+addButton.addEventListener("click", function() {
+  productList.forEach(item => {
+    if (item.name === searchInput.value) {
+      shoppingCart.addProduct(item);
+    }
+  });
+
+  shoppingCart.renderProduct();
+});
 
 render();

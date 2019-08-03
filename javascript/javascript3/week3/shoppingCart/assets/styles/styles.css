@@ -1,0 +1,140 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #f9fbfd;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body,
+  h1,
+  h2 {
+    margin: 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5);
+  }
+  
+  header .wrapper {
+    width: 800px;
+    margin: 0 auto;
+    height: 80px;
+    background: #ffffff;
+    position: relative;
+  }
+  
+  header .wrapper h1,
+  header .wrapper h2 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  header .wrapper h2 {
+    left: 125px;
+  }
+  
+  header .currency{
+      float:right;
+  }
+  /*#FF813F*/
+  
+  section.table-view-control,
+  section.products,
+  section.cart {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  section.table-view-control,
+  section.products {
+    margin: 24px auto 12px;
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(190, 190, 190, 0.5);
+    border-radius: 8px;
+  }
+  
+  section.table-view-control {
+    padding: 12px;
+  }
+  
+  section.table-view-control > div,
+  section.table-view-control .filters > div {
+    margin-bottom: 60px;
+  }
+  
+  section.products > ul {
+    padding: 0;
+  }
+
+  section.products > ul > li {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  section.products > ul > li > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 12px 12px 12px;
+  }
+  
+  section.products > ul > li > ul > li:first-child {
+    width: 200px;
+  }
+  
+  section.products > ul > li:nth-child(odd) {
+    background-color: #f0f0f0;
+  }
+  
+  section.products li div,
+  section.products li button {
+    margin-right: 12px;
+    width: 100px;
+  }
+
+  
+  section.products li .name {
+    width: 200px;
+    
+  }
+  
+  
+/* Style the input */
+input {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+  }
+/* Style the "Add" button */
+.addBtn, button {
+    padding: 10px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+  }
+  
+  .addBtn:hover, button{
+    background-color: #bbb;
+  }
+
