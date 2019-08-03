@@ -15,7 +15,7 @@ class Product {
    * @memberof Product
    */
   convertToCurrency(currency) {
-    const apiKey = "62eba05a1eaf281ad316";
+    const apiKey = "32b6c2c9f5802e8f27c7";
     return fetch(
       `https://free.currconv.com/api/v7/convert?q=${
         this.currentCurrency
@@ -24,8 +24,8 @@ class Product {
       .then(response => response.json())
       .then(data => {
         this.currentCurrency = currency;
-        const newPrice =
-          this.price * data[`${this.currentCurrency}_${currency}`];
+        console.log(data[Object.keys(data)[0]]);
+        const newPrice = this.price * data[Object.keys(data)[0]];
         this.changePrice(newPrice);
       })
 
@@ -131,17 +131,15 @@ class ShoppingCart {
 
     this.products.forEach(product => {
       const productElem = createList(listOfProducts, product.name);
-      console.log(typeof product.price);
-      createList(productElem, product.price);
+      createList(productElem, product.price.toFixed(2));
       const that = this;
-
       listOfProducts.appendChild(productElem);
 
       addActionButton(productElem).addEventListener("click", function() {
         that.removeProduct(product);
       });
     });
-    createList(listOfProducts, `Total price: ${this.getTotal()}`);
+    createList(listOfProducts, `Total price: ${this.getTotal().toFixed(2)}`);
   }
 
   /**
@@ -198,9 +196,11 @@ currencySelect.addEventListener("change", () => {
   // shoppingCart.products.forEach(product => {
   //   product.convertToCurrency(currencySelect.value);
   // });
-  Promise.all(shoppingCart.products.map(product => {
-    return product.convertToCurrency(currencySelect.value);
-  })).then(data => {
+  Promise.all(
+    shoppingCart.products.map(product => {
+      return product.convertToCurrency(currencySelect.value);
+    })
+  ).then(data => {
     shoppingCart.renderProduct();
   });
 });
