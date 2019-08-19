@@ -26,7 +26,7 @@ use hyf19;
 
 -- 7.Get the title and due date of all tasks where the title or description contains database
 -- SELECT title, due_date FROM task 
--- WHERE title LIKE '%database%' || description LIKE '%database%';
+-- WHERE title LIKE '%database%' OR description LIKE '%database%';
 
 -- 8.Get the title and status (as text) of all tasks
 -- SELECT task.title, status.name AS statusName FROM task 
