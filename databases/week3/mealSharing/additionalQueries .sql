@@ -13,8 +13,8 @@
 -- WHERE title like '%Rød grød med%';
 
 -- Get meals that has been created between two dates
-SELECT * FROM Meal
-WHERE created_date BETWEEN '2019-08-25' AND '2019-08-27'
+-- SELECT * FROM Meal
+-- WHERE created_date BETWEEN '2019-08-25' AND '2019-08-27'
 
 -- Get only specific number of meals fx return only 5 meals
 -- SELECT * FROM Meal
@@ -25,7 +25,7 @@ WHERE created_date BETWEEN '2019-08-25' AND '2019-08-27'
 -- JOIN Review
 -- ON Meal.id = Review.meal_id
 -- GROUP BY Meal.title
--- HAVING AVG(Review.star) > 3;
+-- HAVING star > 3;
 
 -- Get reservations for a specific meal sorted by created_date
 -- SELECT Meal.title, Reservation.number_of_guests, Reservation.created_date
