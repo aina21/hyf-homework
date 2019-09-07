@@ -12,8 +12,7 @@ app.get("/meals", meals);
 app.get("/cheap-meals", cheapMeals);
 app.get("/large-meals", largeMeals);
 app.get("/meal", randomMeal);
-app.get("/reservation", reservations);
-app.get("/reservations", randomReservation);
+app.get("/reservations", reservations);
+app.get("/reservation", randomReservation);
 
 app.listen(3000);
-
