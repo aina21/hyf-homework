@@ -3,7 +3,7 @@ const router = express.Router();
 
 const meals = require("../data/meals.json");
 
-router.get("/meals/:id", function(req, res) {
+router.get("/:id", function(req, res) {
   const id = Number(req.params.id);
   const result = meals.filter(meal => {
     return meal.id === id;
@@ -11,7 +11,7 @@ router.get("/meals/:id", function(req, res) {
   res.send(result);
 });
 
-router.get("/meals", function(req, res) {
+router.get("/", function(req, res) {
   const { maxPrice = 9000 } = req.query;
   const { title = "" } = req.query;
   const { createdAfter = "1970-01-01" } = req.query;
