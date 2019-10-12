@@ -44,7 +44,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Container className="App">
+      <Container className="App mainForm">
         <h2>Todo List</h2>
         <TodoList
           addItem={this.addItem}

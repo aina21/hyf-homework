@@ -1,13 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,900");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.mainForm {
+  width: 80%;
+  margin: 30px auto;
+  padding: 20px 20px 40px 20px;
+  box-shadow: 0 0 8px #333;
+  position: relative;
 }
