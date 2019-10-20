@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import TodoList from "./TodoList";
 import TodoItems from "./TodoItems";
+import Counter from "./counter";
 import Container from "react-bootstrap/Container";
 
 class App extends React.Component {
@@ -71,6 +72,7 @@ class App extends React.Component {
     return (
       <Container className="App mainForm">
         <h2>Todo List</h2>
+        <Counter initialCounter={1}></Counter>
         <TodoList
           addItem={this.addItem}
           inputElement={this.inputElement}
