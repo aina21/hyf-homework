@@ -22,13 +22,14 @@ class TodoList extends React.Component {
             />
             <InputGroup.Append>
               <DatePicker
+                showPopperArrow={false}
                 selected={this.props.currentItem.deadline}
                 onSelect={this.props.handleSelectDate}
                 onChange={this.props.handleChangeDate}
               />
               <Button
                 variant="outline-secondary"
-                // disabled={!this.props.currentItem.description}
+                disabled={!this.props.currentItem.description}
                 type="submit"
               >
                 Add Task

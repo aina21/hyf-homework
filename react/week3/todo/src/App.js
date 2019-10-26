@@ -1,11 +1,13 @@
 import React from "react";
+
 import "./App.css";
 import * as API from "./api";
+
 import TodoList from "./components/TodoList";
 import TodoItems from "./components/TodoItems";
 import Counter from "./components/counter";
-import Container from "react-bootstrap/Container";
 
+import Container from "react-bootstrap/Container";
 class App extends React.Component {
   constructor() {
     super();
@@ -15,7 +17,7 @@ class App extends React.Component {
         id: "",
         description: "",
         deadline: new Date(),
-        isComplicated: false
+        isComplicated: false,
       }
     };
   }
@@ -36,6 +38,14 @@ class App extends React.Component {
     this.setState({
       currentItem
     });
+  };
+
+  handleEdit = (id, e) => {
+    const index = this.state.items.findIndex(item => {
+      return item.id === id;
+    });
+    this.state.items[index].description = e.target.value;
+    this.forceUpdate();
   };
 
   handleChangeDate = date => {
@@ -79,6 +89,7 @@ class App extends React.Component {
       items: temporaryItems
     });
   };
+
   render() {
     return (
       <Container className="App mainForm">
@@ -94,6 +105,8 @@ class App extends React.Component {
         <TodoItems
           entries={this.state.items}
           deleteItem={this.deleteItem}
+          editItem={this.editItem}
+          handleEdit={this.handleEdit}
           toggleTodoComplete={this.toggleTodoComplete}
         />
       </Container>
