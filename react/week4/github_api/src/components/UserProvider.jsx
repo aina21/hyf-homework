@@ -8,18 +8,30 @@ class UserProvider extends Component {
     super();
     this.state = {
       users: [],
-      userName: "aina21",
-      isLoading: false
+      isLoading: false,
+      isEmpty: true
     };
   }
 
-  async componentDidMount() {
-    const response = await API.getUser(this.state.userName);
-    const users = response.items.map((user, index) => {
-      return { username: user.login, id: index };
-    });
-    this.setState({ users });
-    console.log(users);
+  findUsers = async (username = "aina21") => {
+    this.setState({ isLoading: true });
+    if (!username) {
+      this.setState({ isEmpty: true, isLoading: false });
+    } else {
+      const response = await API.getUser(username);
+      if (!response) {
+        this.setState({ isEmpty: true });
+      } else {
+        const users = response.items.map((user, index) => {
+          return { username: user.login, id: index };
+        });
+        this.setState({ users: users, isEmpty: false, isLoading: false });
+      }
+    }
+  };
+
+  componentDidMount() {
+    this.findUsers();
   }
 
   render() {
@@ -27,7 +39,7 @@ class UserProvider extends Component {
       <UserContext.Provider
         value={{
           state: this.state,
-          userName: this.props.userName
+          action: { findUsers: this.findUsers }
         }}
       >
         {this.props.children}

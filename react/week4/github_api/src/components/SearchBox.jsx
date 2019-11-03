@@ -1,19 +1,30 @@
 import React, { Component } from "react";
-import User from "./User";
-import UserProvider from "./UserProvider";
+import { UserContext } from "./UserProvider";
 
 export default class SearchBox extends Component {
   state = {
     searchText: ""
   };
-  handleInput = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  };
+
   render() {
     return (
-        <input onChange={this.handleInput}></input>
+      <UserContext.Consumer>
+        {value => {
+          const handleSubmit = event => {
+            event.preventDefault();
+            const search = event.target.search.value.trim();
+
+            value.action.findUsers(search);
+            event.target.reset();
+          };
+          return (
+            <form onSubmit={handleSubmit}>
+              <input type="text" name="search" />
+              <button type="submit">search</button>
+            </form>
+          );
+        }}
+      </UserContext.Consumer>
     );
   }
 }
