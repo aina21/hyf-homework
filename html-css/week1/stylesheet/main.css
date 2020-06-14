@@ -10,72 +10,68 @@ hgroup,
 menu,
 nav,
 section {
-  display: block;
-}
-
-body {
-  line-height: 1;
+    display: block;
 }
 
 ol,
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 blockquote,
 q {
-  quotes: none;
+    quotes: none;
 }
 
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
-  content: none;
+    content: "";
+    content: none;
 }
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /* End of Eric Meyer's CSS Reset */
 
 * {
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-  }
-
-body{
-    font-family: 'Fira Sans', sans-serif;
-    display: block;
-
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
-/* grid layout */
-.container{
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  grid-gap: 20px;
 
+body {
+    font-family: "Fira Sans", sans-serif;
+    display: block;
+}
+
+/* grid layout */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+    width: 85%;
 }
 /* Header */
-header{
-  grid-column: 1/3;
-  grid-row: 1;
+header {
+    grid-column: 1/3;
+    grid-row: 1;
     line-height: 5px;
     background: #9ad3de;
     color: whitesmoke;
     text-align: center;
-    
+
     padding: 30px;
 }
-h1{
+h1 {
     font-size: 20px;
 }
 /* my photo */
-img{
+img {
     /* float: left; */
     width: 100px;
     height: 100px;
@@ -83,97 +79,142 @@ img{
 }
 
 /* main */
-.content{
-  grid-column: 2;
+.content {
+    grid-column: 2;
     grid-row: 2;
     background: #e3e3e3;
     padding: 5px;
-
+    padding-left: 15px;
 }
 
- section h2{
-     font-size: 15px;
-     text-transform: uppercase;
-     font-weight: 500;
-     
- }
- .degree{
-   color: #474D4F;
-   font-size: 10px;
-   font-weight: bold;
-   line-height: 0.1px;
- }
- .date{
-   color: #626465de;
-   font-size: 11px;
- }
-svg{
-  width: 20px;
-  height: 20px;
-  float: left;
-  margin-right: 10px;
+section h2 {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.degree {
+    color: #474d4f;
+    font-size: 10px;
+    font-weight: bold;
+    line-height: 0.1px;
+}
+.date {
+    color: #626465de;
+    font-size: 11px;
+}
+.section_logo {
+    font-size: 20px;
+    padding: 5px;
 }
 
+.item{
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.item--nospacetop{
+    padding-top: 0px;
+}
+.description{
+    padding-left: 20px;
+    font-size: 10px;
+    line-height: 1.3rem;
+}
 /* aside*/
- .aside{
-   grid-column: 1;
-   grid-row: 2;
-  background: #89bdd3;
-  padding: 30px;
-  width: 100%;
-  font-size: 13px;
-  font-weight: lighter;
-  }
-  .aside h2{
+.aside {
+    grid-column: 1;
+    grid-row: 2;
+    background: #89bdd3;
+    padding: 30px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: lighter;
+}
+.aside h2 {
     font-size: 15px;
     text-align: center;
     font-weight: 400;
+}
 
-  }
+.aside a {
+    color: #000000bd;
+}
 
-  .aside a{
-    color:#000000bd;
-    
-  }
-
-  .aside svg{
+.aside svg {
     width: 30px;
     height: 30px;
-  }
+}
 
-  .prog{
+.languages,
+.skills {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.skills {
+    line-height: 20px;
+}
+.languages ul {
+    padding: 0px;
+}
+
+.prog {
     height: 5px;
     margin-top: 10px;
-  }
+}
 
-  .item{
-    list-style-type: circle;
-  }
-  #language-english{
+.links_logoContainer {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+.links__logo {
+    font-size: 30px;
+    padding-right: 20px;
+}
+#language-english {
     width: 80%;
-  }
-  #language-danish{
+}
+#language-danish {
     width: 65%;
-  }
-  #language-persian{
+}
+#language-persian {
     width: 100%;
-  }
+}
 
-  /* larg screen */
-  @media only screen  and (min-width : 1824px) {
+
+
+/* larg screen */
+@media only screen and (min-width: 1824px) {
     .aside {
         width: 100%;
     }
-} 
-
-/* smartphone */
-@media (min-width: 320px) and (max-width: 480px) {
-  body{
-    width: 100%;
-  }
-  .aside{
-    width:100%;
-  }
-  
 }
 
+/* smartphone */
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .content {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        order: 2;
+    }
+    .aside {
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        order: 3;
+    }
+    .links {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
